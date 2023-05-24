@@ -1,5 +1,9 @@
 /*! tether 1.3.3 */
 
+const customInitTether = () => {
+
+
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(factory);
@@ -1790,3 +1794,6 @@ TetherBase.modules.push({
 return Tether;
 
 }));
+}
+
+customInitTether();

@@ -178,8 +178,21 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
 
       }
       .login-box .card .card-body {
-        padding: 0; 
-        border: none; 
+
+        width: 100%;
+        padding: 0 30px;
+        margin: 0 auto;
+        border: none;
+        background: #ffffff;
+        border-radius: 0;
+        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+
+
+
+      
    }	  
 
 
@@ -201,8 +214,13 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
           } 
 
             .login-register .card .card-body {
-              width: 110%;
+
+              width: 100%;
+              padding: 40px 10px;
+              margin: 0 auto;
              
+              background: #ffffff;
+            
 
              } 
 
@@ -1493,7 +1511,7 @@ Slider
     justify-content: center; }
     .home-slider--wrapper__inner:before {
       content: "";
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.377);
       position: absolute;
       left: 0;
       top: 0;
