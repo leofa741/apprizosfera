@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -17,6 +20,12 @@ import { CasestudyComponent } from './shared/casestudy/casestudy.component';
 import { StaticticsComponent } from './shared/statictics/statictics.component';
 import { PartnersComponent } from './shared/partners/partners.component';
 import { GetstartedComponent } from './shared/getstarted/getstarted.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { AboutsComponent } from './pages/abouts/abouts.component';
+
 
 @NgModule({
   declarations: [
@@ -35,10 +44,17 @@ import { GetstartedComponent } from './shared/getstarted/getstarted.component';
     CasestudyComponent,
     StaticticsComponent,
     PartnersComponent,
-    GetstartedComponent
+    GetstartedComponent,
+    BlogComponent,
+    HomeComponent,
+    ContactComponent,
+    PortfolioComponent,
+    AboutsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
