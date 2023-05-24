@@ -203,12 +203,14 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
         .login-register {
         
           width: 100%; 
-          padding: 0 30px; }
+         
+         }
 
           .login-register .card {
             width: 110%;
             margin-bottom: 30px; 
             margin-top: 30px;
+
 
 
           } 
@@ -217,7 +219,8 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
 
               width: 100%;
               padding: 40px 10px;
-              margin: 0 auto;
+              margin-left: -10px;
+            
              
               background: #ffffff;
             
@@ -1511,7 +1514,7 @@ Slider
     justify-content: center; }
     .home-slider--wrapper__inner:before {
       content: "";
-      background: rgba(0, 0, 0, 0.377);
+      background: rgba(0, 0, 0, 0.445);
       position: absolute;
       left: 0;
       top: 0;
