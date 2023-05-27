@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 declare function customboostrapinit(): any;
 declare function customInit(): any;
 declare function customInitTether(): any;
-declare function customInitSlick(): any;
+
 
 @Component({
   selector: 'app-portfolio',
@@ -13,10 +13,10 @@ declare function customInitSlick(): any;
 export class PortfolioComponent implements OnInit{
 
   ngOnInit() : void {
-    customInitTether();
+ 
     customInit();
-    customInitSlick();
-    customboostrapinit();
+   
+ 
    
   }
 

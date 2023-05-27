@@ -25,6 +25,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutsComponent } from './pages/abouts/abouts.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 
 @NgModule({
@@ -49,12 +52,16 @@ import { AboutsComponent } from './pages/abouts/abouts.component';
     HomeComponent,
     ContactComponent,
     PortfolioComponent,
-    AboutsComponent
+    AboutsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

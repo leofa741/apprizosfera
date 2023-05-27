@@ -3,23 +3,19 @@
         <div class="logo">
             <a routerLink="/home"><img src="assets/img/logo1.png" alt="" /></a>
         </div>
-        <div class="menu menu1">
+        <div class="menu menu1  ">
             <ul>
-                <li><a routerLink="/home"  routerLinkActive="active" >Home</a></li>
-                <li><a routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
-                <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
-                <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
-                <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-               
+                <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
+                <li><a routerLink="/portfolio"  routerLinkActive="active">Portfolio</a></li>
+                <li><a routerLink="/about"   routerLinkActive="active">About Us</a></li>
+                <li ><a routerLink="/blog"  routerLinkActive="active">Blog</a></li>
+                <li *ngIf="isLoggedIn()"><a routerLink="/admin"   routerLinkActive="active">Admin</a></li> 
+                <li><a routerLink="/contact"   routerLinkActive="active">Contact</a></li>               
                 <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active" >login</a></li>
-                <li *ngIf="isLoggedIn()"><a routerLink="/login" routerLinkActive="active" >logout</a></li>
-             
-                       
-
-                   
-                
-            </ul>
+                <li *ngIf="isLoggedIn()"><a routerLink="/login" (click)="logout()" routerLinkActive="active" >logout</a></li>                   
+              </ul>
         </div>
-        <div class="mobile-menu"><i class="fa fa-bars"></i></div>
+        <div class="mobile-menu  "><i class="fa fa-bars"></i></div>
     </div>
   </header>
+ 
