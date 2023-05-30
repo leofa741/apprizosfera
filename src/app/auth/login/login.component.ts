@@ -13,7 +13,7 @@ declare const google: any;
 })
 export class LoginComponent implements OnInit  ,AfterViewInit{
 
-  @ViewChild('googleBtn')  googleBtn!: ElementRef;
+  @ViewChild('googleBtn') googleBtn!: ElementRef;
 
   public formSubmitted = false;
 
@@ -31,13 +31,15 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
     private   ngZone :NgZone
   ) { }
   ngAfterViewInit(): void {
-    this.googleInit();
+  this.googleInit();
   }
 
   ngOnInit() {
+   
   }
 
   googleInit() {
+
     google.accounts.id.initialize({
       client_id: "1024348454013-i936bdigj86lup1kb88ecevv9r8rahl6.apps.googleusercontent.com",
       callback: (response: any) => this.handleCredentialResponse(response),
@@ -46,12 +48,9 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
       //document.getElementById("buttonDiv"),
       this.googleBtn.nativeElement,
       { 
-        text: "Login with Google",
-        width: 350,
-         height: "auto",
-          longtitle: true,
-          theme: "dark",
-        
+      
+        theme: "outline",
+        size: "large",
 
      }  // customization attributes
     );
@@ -59,11 +58,9 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
   }
 
   handleCredentialResponse(response:any) {
-   
-    // Send the token to your auth backend.
-    this.usuarioService. loginGoogle(response.credential)
+    this.usuarioService.loginGoogle(response.credential)
     .subscribe( resp => {
-      // Navegar al Dashboard
+      
       this.router.navigateByUrl('/blog');       
     }
     )
@@ -72,38 +69,29 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
 
 
 
-  login () {
-    this.formSubmitted = true;
-    if ( this.loginForm.invalid ) {
-      return;
-    }      
+  login() {
+        this.formSubmitted = true;
+        if ( this.loginForm.invalid ) {
+          return;
+        } 
     
-    this.usuarioService.login(this.loginForm.value)
-    .subscribe( resp => {
-      const email= this.loginForm.get('email')?.value;
+        this.usuarioService.login(this.loginForm.value)
+             .subscribe( resp => {
+          const email= this.loginForm.get('email')?.value;      
 
-      if ( this.loginForm.get('remember')?.value ) {
-        localStorage.setItem('email', email? email : '');
-      } else {
-        localStorage.removeItem('email');
-      }
+     
+          this.ngZone.run(() => { 
+          this.router.navigateByUrl('/blog');  
+        })  
 
-      // Navegar al Dashboard
-      this.ngZone.run(() => {  
-
-        //cargando
-
-        
-
-      this.router.navigateByUrl('/blog');  
-    })  
-
-    }, (err) => {
-      // Si sucede un error
-      Swal.fire('Error', err.error.msg, 'error' );
-    }
-    )
+        }, (err) => {
+          // Si sucede un error
+              Swal.fire('Error', err.error.msg, 'error' );
+        }
+     )
   }
+
+
 
 
   
@@ -114,5 +102,7 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
         return false;
       }  
     }
+
+  
 
 }

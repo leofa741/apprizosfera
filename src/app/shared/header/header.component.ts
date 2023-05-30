@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit  {
 
   logout() {
     this.usuarioService.logout();
-    window.location.reload();
+
   }
 
 
@@ -28,12 +28,14 @@ export class HeaderComponent implements OnInit  {
   isLoggedIn () {
     const token = localStorage.getItem('token') || '';
     if (token.length !== 0) {
+
+      this.usuarioService.validarToken();
       return true
     }
-
-
-
+    
     return false;
   }  
+
+  
 
 }

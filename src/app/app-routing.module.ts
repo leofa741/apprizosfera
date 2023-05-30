@@ -14,19 +14,6 @@ import Swal from 'sweetalert2';
 
 
 
-const authGuardb = () => {
-
-  const router = new Router;
-  
-  const token = localStorage.getItem('token') || '';
-  if (token.length === 0) {
-    Swal.fire('Error', 'Debes estar logueado para acceder a esta página', 'error' );
-    return router.parseUrl('/login');
-
-  }
-  return true;
-
-};
 
 
 
@@ -38,7 +25,7 @@ const routes: Routes = [
 { path: 'home', component: HomeComponent , data: { titulo: 'Home' }},
 { path: 'portfolio', component: PortfolioComponent , data: { titulo: 'Portfolio' }},
 { path: 'about', component: AboutsComponent , data: { titulo: 'About' }},
-{ path: 'blog', component: BlogComponent , canActivate: [ authGuardb ], data: { titulo: 'Blog' }},
+{ path: 'blog', component: BlogComponent , canActivate: [ authGuard ], data: { titulo: 'Blog' }},
 { path: 'blog/:id', component: BlogComponent , data: { titulo: 'Blog' }},
 { path: 'contact', component: ContactComponent , data: { titulo: 'Contact' }},
 { path: '', redirectTo: '/home', pathMatch: 'full' },

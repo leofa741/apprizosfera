@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Usuario } from '../models/usuario.model';
 
 const base_url = environment.base_url;
 
-declare const gapi: any;
+declare const gapi:any;
 declare const google: any;
 
 @Injectable({
@@ -16,8 +17,10 @@ declare const google: any;
 })
 
 export class UsuariosService {
+ 
 
   public auth2: any;
+  public usuario!: Usuario; 
 
   constructor( private http: HttpClient, 
                 private router: Router,
@@ -36,24 +39,42 @@ export class UsuariosService {
           cookiepolicy: 'single_host_origin',
         });
 
-        resolve();
+        //resolve();
       });
     })
 
   }
 
   logout() {
+
     localStorage.removeItem('token');
-    google.accounts.id.disableAutoSelect(); 
+    localStorage.removeItem('email');
 
-    this.auth2.signOut().then(() => {
-        this.ngZone.run(() => {   
-        this.router.navigateByUrl('/login');
+    //    google.accounts.id.revoke( localStorage.removeItem('email'), () => {
+    //    console.log('revoke');
+      
+    //    this.router.navigateByUrl('/login');
+    //  });
 
-      })
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
+      console.log('User signed out.');
+      this.ngZone.run(() => {
+      this.router.navigateByUrl('/login');
+      }
+      )
     });
 
+
+    // this.auth2.signOut().then(() => {
+    //     this.ngZone.run(() => {   
+    //     this.router.navigateByUrl('/login');
+
+    //   })
+    // });
+
   }
+
 
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
@@ -64,12 +85,52 @@ export class UsuariosService {
       }
     }).pipe(
       tap( (resp: any) => {
+      
+        const { email, google, nombre, role, img = '', uid } = resp.usuario;
+
+        console.log(resp.usuario);
+        console.log('token', resp.token );
+       
+
         localStorage.setItem('token', resp.token );
       }),
       map( resp => true),
       catchError( error => of(false) )
     );
 
+  }
+//ldddfdfedd@gmail.com
+  static validateToken() {
+    const token = localStorage.getItem('token') || '';
+
+    if (token.length <= 0) {
+      return false;
+    }    
+
+    const payload = JSON.parse( atob( token.split('.')[1] ) );
+    console.log(payload);
+    const { uid} = payload;    
+
+    const expirado = this.expirado( payload.exp );
+
+    if (expirado) {
+      return false;
+    }
+
+    return true;
+    
+  }
+ 
+  static expirado(exp: any) {
+      
+      const ahora = new Date().getTime() / 1000;
+  
+      if (exp < ahora) {
+        return true;
+      } else {
+        return false;
+      }
+   
   }
 
 
@@ -89,7 +150,11 @@ export class UsuariosService {
     return this.http.post(`${ base_url }/login`, formData )
                 .pipe(
                   tap( (resp: any) => {
-                    localStorage.setItem('token', resp.token )
+                   
+                    const { email, google, nombre, role, img = '', uid } = resp.usuario; 
+
+                    localStorage.setItem('email', email );
+                     localStorage.setItem('token', resp.token )
 
                   })
                 );
@@ -98,18 +163,18 @@ export class UsuariosService {
 
   loginGoogle( token: string ) {
     
-    return this.http.post(`${ base_url }/login/google`, { token } )
+          return this.http.post(`${ base_url }/login/google`, { token } )
                 .pipe(
-                  tap( (resp: any) => {
-                    localStorage.setItem('token', resp.token )
+                  tap( (resp: any) => {                  
+                    // console.log(resp.msg); 
+                    const {aud, email, google, name, role, picture  = '', uid } = resp.msg;
+                    // console.log(aud,email, google, name, role, picture, uid); 
+                     localStorage.setItem('token', resp.token )
+                     localStorage.setItem('email', email );
                   })
                 );
 
-  }
-
-  
+    }  
 
 }
-
-
 
