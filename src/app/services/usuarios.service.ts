@@ -39,7 +39,7 @@ export class UsuariosService {
           cookiepolicy: 'single_host_origin',
         });
 
-        //resolve();
+        resolve();
       });
     })
 
@@ -48,7 +48,8 @@ export class UsuariosService {
   logout() {
 
     localStorage.removeItem('token');
-    localStorage.removeItem('email');
+    //localStorage.removeItem('email');
+  
 
     //    google.accounts.id.revoke( localStorage.removeItem('email'), () => {
     //    console.log('revoke');
@@ -86,10 +87,16 @@ export class UsuariosService {
     }).pipe(
       tap( (resp: any) => {
       
-        const { email, google, nombre, role, img = '', uid } = resp.usuario;
+                            const {nombre, email,img, google,  role,  uid } = resp.usuario;
 
-        console.log(resp.usuario);
-        console.log('token', resp.token );
+       this.usuario = new Usuario( nombre, email,  img, google, role, uid );
+       this.usuario.imprimirUsuario();
+      
+     
+      
+
+        console.log("desde valtk",resp.usuario);
+        console.log('desde token ', resp.token );
        
 
         localStorage.setItem('token', resp.token );
@@ -100,38 +107,40 @@ export class UsuariosService {
 
   }
 //ldddfdfedd@gmail.com
-  static validateToken() {
-    const token = localStorage.getItem('token') || '';
+  //static validateToken() {
+  //   const token = localStorage.getItem('token') || '';
 
-    if (token.length <= 0) {
-      return false;
-    }    
+  //   if (token.length <= 0) {
+  //     return false;
+  //   }    
 
-    const payload = JSON.parse( atob( token.split('.')[1] ) );
-    console.log(payload);
-    const { uid} = payload;    
+  //   const payload = JSON.parse( atob( token.split('.')[1] ) );
+  //   console.log(payload);
+  //   const { uid} = payload;    
 
-    const expirado = this.expirado( payload.exp );
+  //   const expirado = this.expirado( payload.exp );
 
-    if (expirado) {
-      return false;
-    }
+  //   if (expirado) {
+  //     return false;
+  //   }
 
-    return true;
+  //   return true;
     
-  }
+  // }
  
-  static expirado(exp: any) {
+  // static expirado(exp: any) {
       
-      const ahora = new Date().getTime() / 1000;
+  //     const ahora = new Date().getTime() / 1000;
   
-      if (exp < ahora) {
-        return true;
-      } else {
-        return false;
-      }
+  //     if (exp < ahora) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
    
-  }
+  // }
+
+
 
 
   crearUsuario( formData: RegisterForm ) {
@@ -153,8 +162,9 @@ export class UsuariosService {
                    
                     const { email, google, nombre, role, img = '', uid } = resp.usuario; 
 
-                    localStorage.setItem('email', email );
+                    //localStorage.setItem('email', email );
                      localStorage.setItem('token', resp.token )
+                     localStorage.setItem('img', img );
 
                   })
                 );

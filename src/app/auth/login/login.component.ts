@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
   public loginForm = this.fb.group({ 
     email: [localStorage.getItem('email') || '',  [ Validators.required, Validators.email ] ],
     password: ['', Validators.required ],
-    remember: [ localStorage.getItem('email') ? true : false ]   
+    remember: [true]
   });
  
 
@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
    
   }
 
+ 
+  
+
+
   googleInit() {
 
     google.accounts.id.initialize({
@@ -47,12 +51,17 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
     google.accounts.id.renderButton(
       //document.getElementById("buttonDiv"),
       this.googleBtn.nativeElement,
-      { 
-      
-        theme: "outline",
-        size: "large",
-
-     }  // customization attributes
+      {  
+      theme: "filled_blue",
+      size: "large",
+      text: "Sign in with Google",
+      shape: "rectangular",
+      logo_alignment: "left",
+      width: "300",
+      height: "50",
+      longtitle: true,
+  
+    } // customization attributes
     );
 
   }
@@ -81,6 +90,13 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
 
      
           this.ngZone.run(() => { 
+          if ( this.loginForm.get('remember')?.value === true ) {
+            localStorage.setItem('email', email? email : '');
+          } else {
+            localStorage.removeItem('email');
+          }
+
+            
           this.router.navigateByUrl('/blog');  
         })  
 

@@ -1,0 +1,17 @@
+.user-name {
+    color: #fff;
+    font-size: 8px;
+    font-weight: 300;
+    margin-right: 5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+    
+}

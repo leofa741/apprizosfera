@@ -43,51 +43,88 @@ interface CanActivate {
   providedIn: 'root'
 })
 
+// export class authGuard implements CanActivate {
+
+//   constructor(
+//     private usuarioService: UsuariosService,
+//     private router: Router,
+//     private http: HttpClient,
+//     private ngZone: NgZone
+//   ) { }
+
+//   canActivate(): Observable<boolean> | Promise<boolean> | boolean {   
+
+//     const token = localStorage.getItem('token') || '';
+
+//     return this.http.get(`${base_url}/login/renew`, {
+//       headers: {
+//         'x-token': token
+//       }
+//     }).pipe(
+//       tap((resp: any) => {
+//         console.log("guard",resp.usuario);
+//         localStorage.setItem('token', resp.token);
+//        // localStorage.setItem('email', resp.usuario.email);
+//       }),
+//       map(resp => {
+//         return true;
+//       }),
+//       catchError(error => {
+//         this.ngZone.run(() => {
+//           Swal.fire({
+//                    icon: 'error',
+//                   title: 'Oops...',
+//                    text: 'You must be logged in to access this page!',
+//                   footer: '<a href="/login">Login</a>'
+//                }
+//           )
+//           localStorage.clear();            
+
+//           this.router.navigateByUrl('/login');
+//         });
+//         return of(false);
+//       })
+//     );
+//   }
+// } 
+
+
 export class authGuard implements CanActivate {
 
-  constructor(
-    private usuarioService: UsuariosService,
-    private router: Router,
-    private http: HttpClient,
-    private ngZone: NgZone
-  ) { }
+    constructor(
+      private usuarioService: UsuariosService,
+      private router: Router,
+      private http: HttpClient,
+      private ngZone: NgZone
+    ) { }
+  
+    canActivate(): Observable<boolean> | Promise<boolean> | boolean {   
+  
+      const token = localStorage.getItem('token') || '';
 
-  canActivate(): Observable<boolean> | Promise<boolean> | boolean {   
-
-    const token = localStorage.getItem('token') || '';
-
-    return this.http.get(`${base_url}/login/renew`, {
-      headers: {
-        'x-token': token
-      }
-    }).pipe(
-      tap((resp: any) => {
-        console.log(resp.usuario);
-        localStorage.setItem('token', resp.token);
-        localStorage.setItem('email', resp.usuario.email);
-      }),
-      map(resp => {
-        return true;
-      }),
-      catchError(error => {
-        this.ngZone.run(() => {
-          Swal.fire({
-                   icon: 'error',
-                  title: 'Oops...',
-                   text: 'You must be logged in to access this page!',
-                  footer: '<a href="/login">Login</a>'
-               }
-          )
-          localStorage.clear();            
-
-          this.router.navigateByUrl('/login');
-        });
-        return of(false);
-      })
-    );
+      return this.usuarioService.validarToken().pipe(
+        tap( (valid) => {
+          if (!valid) {
+            Swal.fire({
+                       icon: 'error',
+                       title: 'Oops...',
+                        text: 'You must be logged in to access this page!',
+                        footer: '<a href="/login">Login</a>'
+                            }
+                        )
+                        localStorage.clear(); 
+            this.router.navigateByUrl('/login');
+          }
+        }
+        )
+      );
+    }
   }
-} 
 
 
 
 
+
+
+
+    
