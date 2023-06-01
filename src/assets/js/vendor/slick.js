@@ -15,7 +15,7 @@
 
  */
 /* global window, document, define, jQuery, setInterval, clearInterval */
-
+const customInitSlick = () => {
 
 (function(factory) {
     'use strict';
@@ -2899,3 +2899,6 @@
 Swiper
 ===========================*/
 
+}
+
+customInitSlick();

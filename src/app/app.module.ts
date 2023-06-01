@@ -28,6 +28,10 @@ import { AboutsComponent } from './pages/abouts/abouts.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+import { PerfilresumenussComponent } from './pages/perfilresumenuss/perfilresumenuss.component';
+import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/usuariosmantenimiento.component';
 
 
 @NgModule({
@@ -53,7 +57,11 @@ import { LoadingComponent } from './shared/loading/loading.component';
     ContactComponent,
     PortfolioComponent,
     AboutsComponent,
-    LoadingComponent
+    LoadingComponent,
+    PerfilComponent,
+    HeaderadminComponent,
+    PerfilresumenussComponent,
+    UsuariosmantenimientoComponent
   ],
   imports: [
     BrowserModule,

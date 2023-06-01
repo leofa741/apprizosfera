@@ -10,9 +10,9 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class HeaderComponent implements OnInit  {
  
-
+  public usuario!: string;
   public imgUrl!: string;
-  public usuario!: Usuario;
+  public usuariomodel!: Usuario;
   constructor(
     private usuarioService: UsuariosService,
   ) {  }
@@ -31,10 +31,9 @@ export class HeaderComponent implements OnInit  {
   isLoggedIn () {
     const token = localStorage.getItem('token') || '';
     if (token.length !== 0) {
-      this.imgUrl = this.usuarioService.usuario.imagenUrl;
-      this.usuario = this.usuarioService.usuario;
-      console.log('this.usuario: ', this.usuario);
-
+      this.imgUrl = this.usuarioService.usuario?.imagenUrl;
+      this.usuario = this.usuarioService.usuario?.nombre
+    
     
       return true
     }
@@ -45,4 +44,3 @@ export class HeaderComponent implements OnInit  {
   
 
 }
-

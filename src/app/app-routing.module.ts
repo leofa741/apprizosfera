@@ -9,12 +9,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { authGuard } from './guards/auth.guard';
-import { UsuariosService } from './services/usuarios.service';
-import Swal from 'sweetalert2';
-
-
-
-
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PerfilresumenussComponent } from './pages/perfilresumenuss/perfilresumenuss.component';
+import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/usuariosmantenimiento.component';
 
 
 
@@ -25,6 +23,10 @@ const routes: Routes = [
 { path: 'home', component: HomeComponent , data: { titulo: 'Home' }},
 { path: 'portfolio', component: PortfolioComponent , data: { titulo: 'Portfolio' }},
 { path: 'about', component: AboutsComponent , data: { titulo: 'About' }},
+{ path: 'perfil', component: PerfilComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
+{ path: 'perfil-usuario', component: PerfilresumenussComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
+{ path: 'mantenimiento-usuario', component: UsuariosmantenimientoComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
+{ path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
 { path: 'blog', component: BlogComponent , canActivate: [ authGuard ], data: { titulo: 'Blog' }},
 { path: 'blog/:id', component: BlogComponent , data: { titulo: 'Blog' }},
 { path: 'contact', component: ContactComponent , data: { titulo: 'Contact' }},

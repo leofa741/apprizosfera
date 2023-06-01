@@ -1,11 +1,13 @@
 import { Injectable, NgZone } from '@angular/core';
 import { RegisterForm } from '../interfaces/register-form.interface';
+
 import { LoginForm } from '../interfaces/login-form.interface';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/usuario.model';
+import { perfilForm } from '../interfaces/update-form.interfaces';
 
 const base_url = environment.base_url;
 
@@ -85,27 +87,26 @@ export class UsuariosService {
         'x-token': token
       }
     }).pipe(
-      tap( (resp: any) => {
-      
-                            const {nombre, email,img, google,  role,  uid } = resp.usuario;
-
-       this.usuario = new Usuario( nombre, email,  img, google, role, uid );
+      tap( (resp: any) => {      
+       const {nombre, email,  uid,  rol,img, google } = resp.usuario;
+       this.usuario = new Usuario( nombre, email,  uid, rol , img, google);  
        this.usuario.imprimirUsuario();
-      
-     
-      
-
-        console.log("desde valtk",resp.usuario);
-        console.log('desde token ', resp.token );
-       
-
         localStorage.setItem('token', resp.token );
+       
       }),
-      map( resp => true),
+      map( resp => true ),
       catchError( error => of(false) )
     );
 
   }
+
+
+
+
+
+
+
+
 //ldddfdfedd@gmail.com
   //static validateToken() {
   //   const token = localStorage.getItem('token') || '';
@@ -154,6 +155,36 @@ export class UsuariosService {
 
   } 
 
+
+  actualizarPerfil( data: {nombre: string, email: string, rol: string} ) {
+
+    data = {
+      ...data,
+      rol: this.usuario.rol
+    }
+ 
+
+    return this.http.put(`${ base_url }/usuarios/${ this.usuario.uid }`, data, {  
+      headers: {
+        'x-token': localStorage.getItem('token') || ''
+      }
+    });
+   
+  
+
+  }
+      
+
+
+
+
+
+
+
+
+
+
+
   login( formData: LoginForm | any) {
     
     return this.http.post(`${ base_url }/login`, formData )
@@ -161,10 +192,8 @@ export class UsuariosService {
                   tap( (resp: any) => {
                    
                     const { email, google, nombre, role, img = '', uid } = resp.usuario; 
-
                     //localStorage.setItem('email', email );
-                     localStorage.setItem('token', resp.token )
-                     localStorage.setItem('img', img );
+                     localStorage.setItem('token', resp.token )                 
 
                   })
                 );
@@ -186,5 +215,17 @@ export class UsuariosService {
 
     }  
 
+  get token(): string {
+    return localStorage.getItem('token') || '';
+  }
+
+ 
+
+
+ 
+  
+  
+
 }
+
 

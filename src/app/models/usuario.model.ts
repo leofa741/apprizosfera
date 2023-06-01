@@ -3,15 +3,18 @@ import { environment } from "src/environments/environment";
 const base_url = environment.base_url;
 
 export class Usuario {
+    [x: string]: any;
 
     constructor(
         //public id: number,
-        public nombre: string,
-        public email: string,     
+        public nombre: string ,
+        public email: string ,
+        public uid: string , 
+        public rol: string ,  
         public img?: string ,
-        public google?: boolean,
-        public role?: string,       
-        public uid?: string,
+        public google?: string ,
+         
+      
         public password?: string,
     ) {
       
@@ -19,7 +22,7 @@ export class Usuario {
 
 
     imprimirUsuario() {
-        console.log('Usuario mdel: ', this.nombre, this.email, this.img,this.google,this.role, );
+        console.log('Usuario mdel: ', this.nombre, this.email,this.uid,this.rol, this.img,this.google );
    
     }
 
@@ -30,7 +33,7 @@ export class Usuario {
         if ( !this.img ) {
             return `${ base_url }/uploads/usuarios/no-image`;
         } else if ( this.google ) {
-            return this.img;
+            return `${ base_url }/uploads/usuarios/${ this.img }`;
         } else if ( this.img ) {
             return `${ base_url }/uploads/usuarios/${ this.img }`;
         } else {

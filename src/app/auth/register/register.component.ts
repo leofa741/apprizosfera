@@ -1,14 +1,19 @@
+
+
 import { Component } from '@angular/core';
 import { FormBuilder, Validators,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent   {
 
   public formSubmitted = false;
@@ -22,6 +27,7 @@ export class RegisterComponent   {
   }, {
     validators: this.passwordsIguales('password', 'password2')
   });
+  
 
   constructor( private fb: FormBuilder,
                private usuarioService: UsuariosService,            

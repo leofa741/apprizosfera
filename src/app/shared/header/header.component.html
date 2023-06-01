@@ -18,7 +18,8 @@
                 <li *ngIf="isLoggedIn()"> <a routerLink="/login" (click)="logout()" routerLinkActive="active" >Logout</a></li>   
                                   
               </ul>
-              <div *ngIf="isLoggedIn()" class="logo-user"><span  class="user-name">{{usuario.nombre }}</span><img [src]="imgUrl" alt="" /></div>
+              <div *ngIf="isLoggedIn()" class="logo-user"><span  class="user-name">{{usuario | slice:0:10}}...</span>
+                <img [src]="imgUrl" alt="" /></div>
         </div>
         <div class="mobile-menu  "><i class="fa fa-bars"></i></div> 
     </div>
