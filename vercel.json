@@ -1,7 +1,7 @@
 {
     "headers": [
       {
-        "source": "https://apprizosfera-back.vercel.app/api/(.*)",
+        "source": "https://apprizosfera-back.vercel.app/api/*",
         "headers": [
           { "key": "Access-Control-Allow-Credentials", "value": "true" },
           { "key": "Access-Control-Allow-Origin", "value": "*" },
