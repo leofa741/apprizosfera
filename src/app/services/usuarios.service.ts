@@ -116,22 +116,18 @@ export class UsuariosService {
 
 
   actualizarPerfil( data: {nombre: string, email: string, rol: string} ) {
-
     data = {
       ...data,
       rol: this.usuario.rol
     }
-
     return this.http.put(`${ base_url }/usuarios/${ this.usuario.uid }`, data, {  
       headers: {
         'x-token': localStorage.getItem('token') || ''
       }
     }); 
-
   }    
 
-  login( formData: LoginForm | any) {
-    
+  login( formData: LoginForm | any) {    
     return this.http.post(`${ base_url }/login`, formData )
                 .pipe(
                   tap( (resp: any) => {
@@ -142,7 +138,6 @@ export class UsuariosService {
 
                   })
                 );
-
   }
 
   loginGoogle( token: string ) {
@@ -165,7 +160,6 @@ export class UsuariosService {
   // }
 
   cargarUsuarios( desde: number = 0 ) {
-
     const url = `${ base_url }/usuarios?desde=${ desde }`;
     return this.http.get<{total: number, usuarios: Usuario[]}>( url, {
       headers: {
@@ -184,13 +178,10 @@ export class UsuariosService {
         };
       })
     );
-
   }
 
-  borrarUsuario( usuario: Usuario ) {
-      
-      const url = `${ base_url }/usuarios/${ usuario.uid }`;
-  
+  borrarUsuario( usuario: Usuario ) {      
+      const url = `${ base_url }/usuarios/${ usuario.uid }`;  
       return this.http.delete( url, {
         headers: {
           'x-token': localStorage.getItem('token') || ''
@@ -199,25 +190,20 @@ export class UsuariosService {
   
     }
 
-    actualizarRol( usuario: Usuario ) {
-        
+  actualizarRol( usuario: Usuario ) {        
         return this.http.put(`${ base_url }/usuarios/${ usuario.uid }`, usuario, {
           headers: {
             'x-token': localStorage.getItem('token') || ''
-          }
-          
+          }          
         } 
         )
         .pipe(
           map( (resp: any) => {
             const { nombre, email, uid, rol, img, google } = resp.usuario;
-            return new Usuario( nombre, email, uid, rol, img, google );
-            console.log(resp);
+            return new Usuario( nombre, email, uid, rol, img, google );          
           }
           )
-        );
-
-    
+        );    
       }
 
   

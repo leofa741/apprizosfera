@@ -3,7 +3,7 @@ import { environment } from "src/environments/environment";
 const base_url = environment.base_url;
 
 export class Usuario {
-    [x: string]: any;
+ 
 
     constructor(
         //public id: number,

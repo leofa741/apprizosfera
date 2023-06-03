@@ -35,10 +35,10 @@
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>imagen</th>
+                                        <th>modificar imagen</th>
                                         <th>Email</th>
                                         <th>Nombre</th>                                        
-                                        <th>rol</th>
+                                        <th>modificar rol</th>
                                         <th>ingreso</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -64,15 +64,16 @@
                                  
                                     <tr *ngFor="let usuario of usuarioss">
                                         <td>
-                                          <img [src]="usuario.imagenUrl"  alt="user" class="img-circle" width="50" height="50">
+                                          <img [src]="usuario.imagenUrl"  alt="user" class="img-circle cursor" width="50" height="50"
+                                            (click)=" abrirModal(usuario)"
+                                          >
                                         </td>
                                         <td>{{usuario.email}}</td>
-                                        <td>{{usuario.nombre}}</td>
+                                        <td>{{usuario.nombre}}</td> 
                                         <td>
-                                            <select aria-label="Default select example"  class="form-select form-select-sm"
+                                            <select   class="form-select form-select-sm" aria-label=".form-select-sm example"
                                             (change)="cambiarRol(usuario)" [(ngModel)]="usuario.rol"
-                                             >
-                                               
+                                             >                                               
                                                 <option value="ADMIN_ROLE">ADMIN_ROLE</option>
                                                 <option value="USER_ROLE">USER_ROLE</option>
                                                 <option value="SUPER_ADMIN_ROLE">SUPER_ADMIN_ROLE</option>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
+import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
@@ -24,14 +25,22 @@ export class UsuariosmantenimientoComponent  implements OnInit {
 
   constructor(
     private usuarioService: UsuariosService,
-    private busquedasService: BusquedasService
+    private busquedasService: BusquedasService,
+    public modalImagenService: ModalImagenService
   ) {  }
 
   ngOnInit() {
     this.isLoggedIn ()
     this.cargarUsuarios();
+    this.modalImagenService.nuevaImagen.subscribe( img => this.cargarUsuarios() );
    
    
+  }
+
+  abrirModal(usuario: Usuario) {
+    this.modalImagenService.abrirModal('usuarios', usuario.uid, usuario.img!);
+    console.log(usuario);
+   // this.modalImagenService.setImg(imagenUrl);
   }
 
  
@@ -131,9 +140,15 @@ export class UsuariosmantenimientoComponent  implements OnInit {
   
       });
   
-    }
+    } 
 
     cambiarRol(  usuario: Usuario ) {
+      if (  usuario.uid === this.usuariomodel.uid ) {
+
+        Swal.fire('Error', 'No puede cambiarse el rol a si mismo', 'error');
+        return ;
+      }
+
       console.log(usuario);
        this.usuarioService.actualizarRol( usuario )
 

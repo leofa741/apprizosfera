@@ -43,12 +43,7 @@ export class BusquedasService  {
                       total: resp.total,
                       usuarios
                     }
-                  }
-
-                  
-                  )
-                   
-                );       
+                  }) );       
           }
 
 
