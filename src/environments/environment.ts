@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    base_url: 'http://localhost:3000/api'
+    //base_url: 'http://localhost:3000/api'
+    base_url: 'https://apprizosfera-back.vercel.app/api'
   };
   
   /*
@@ -17,6 +18,6 @@ export const environment = {
   // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
   
   
+ // https://apprizosfera-back.vercel.app/
   
-  
-  
+  //https://www.rizosfera.com.ar/home
