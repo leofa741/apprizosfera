@@ -15,7 +15,7 @@ export class Usuario {
         public google?: string ,
          
       
-        public password?: string,
+        public password?: string, 
     ) {
       
      }

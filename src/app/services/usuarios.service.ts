@@ -103,47 +103,6 @@ export class UsuariosService {
 
 
 
-
-
-
-
-//ldddfdfedd@gmail.com
-  //static validateToken() {
-  //   const token = localStorage.getItem('token') || '';
-
-  //   if (token.length <= 0) {
-  //     return false;
-  //   }    
-
-  //   const payload = JSON.parse( atob( token.split('.')[1] ) );
-  //   console.log(payload);
-  //   const { uid} = payload;    
-
-  //   const expirado = this.expirado( payload.exp );
-
-  //   if (expirado) {
-  //     return false;
-  //   }
-
-  //   return true;
-    
-  // }
- 
-  // static expirado(exp: any) {
-      
-  //     const ahora = new Date().getTime() / 1000;
-  
-  //     if (exp < ahora) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-   
-  // }
-
-
-
-
   crearUsuario( formData: RegisterForm ) {
     
     return this.http.post(`${ base_url }/usuarios`, formData )
@@ -162,28 +121,14 @@ export class UsuariosService {
       ...data,
       rol: this.usuario.rol
     }
- 
 
     return this.http.put(`${ base_url }/usuarios/${ this.usuario.uid }`, data, {  
       headers: {
         'x-token': localStorage.getItem('token') || ''
       }
-    });
-   
-  
+    }); 
 
-  }
-      
-
-
-
-
-
-
-
-
-
-
+  }    
 
   login( formData: LoginForm | any) {
     
@@ -215,14 +160,67 @@ export class UsuariosService {
 
     }  
 
-  get token(): string {
-    return localStorage.getItem('token') || '';
+  // get token(): string {
+  //   return localStorage.getItem('token') || '';
+  // }
+
+  cargarUsuarios( desde: number = 0 ) {
+
+    const url = `${ base_url }/usuarios?desde=${ desde }`;
+    return this.http.get<{total: number, usuarios: Usuario[]}>( url, {
+      headers: {
+        'x-token': localStorage.getItem('token') || ''
+      }
+    } 
+    )
+    .pipe(
+      map( resp => {
+        const usuarios = resp.usuarios.map(
+          user => new Usuario( user.nombre, user.email, user.uid, user.rol, user.img, user.google )
+        );
+        return {
+          total: resp.total,
+          usuarios
+        };
+      })
+    );
+
   }
 
- 
+  borrarUsuario( usuario: Usuario ) {
+      
+      const url = `${ base_url }/usuarios/${ usuario.uid }`;
+  
+      return this.http.delete( url, {
+        headers: {
+          'x-token': localStorage.getItem('token') || ''
+        }
+      } );
+  
+    }
 
+    actualizarRol( usuario: Usuario ) {
+        
+        return this.http.put(`${ base_url }/usuarios/${ usuario.uid }`, usuario, {
+          headers: {
+            'x-token': localStorage.getItem('token') || ''
+          }
+          
+        } 
+        )
+        .pipe(
+          map( (resp: any) => {
+            const { nombre, email, uid, rol, img, google } = resp.usuario;
+            return new Usuario( nombre, email, uid, rol, img, google );
+            console.log(resp);
+          }
+          )
+        );
 
- 
+    
+      }
+
+  
   
   
 

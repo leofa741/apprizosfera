@@ -25,7 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutsComponent } from './pages/abouts/abouts.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
@@ -68,7 +68,8 @@ import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/us
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

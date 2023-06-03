@@ -5,15 +5,15 @@
         <div class="row">
             <div class="col-md-5">
                 <h2>Imagen</h2>
-                <img [src]="imgUrl"
-                 alt="" style="width: 50%; height: 66%; border-radius: 50%; border: 2px solid #000;" />
+                <img [src]="imgUrl"  (click)="subirImagen()"
+                 alt="" style="width: 50%; height: 66%; border-radius: 50%; border: 2px solid #000;"  />
                 <br />
                 <input type="file" (change)="cambiarImagen($event)" />
                 
                 <br />
                 <br />
-                <button class="button small btn btn-block " type="submit"  (click)="subirImagen()" >Subir</button>
-            
+                <button class="button small btn btn-block " type="submit"  (click)="subirImagen()" >   subir</button>
+
               
             </div>
          

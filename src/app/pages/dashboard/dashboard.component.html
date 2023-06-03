@@ -5,13 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <img src="assets/img/Monitor.png" alt="" />
+                <img src="assets/img/logo1.png" alt="" class="img" />
             </div>
             <div class="col-md-7">
                 <h2>Our History</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ip sum has been the industry's standard dummy text ever since the 1500s, when an unk- nown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <a href="#" class="button">Browse Our Work</a>
+                <a  [routerLink]="['/login']" (click)="logout()"  class="button">Logout</a>
             </div>
         </div>
     </div>

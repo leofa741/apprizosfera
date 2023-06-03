@@ -3,18 +3,120 @@
 
 <section class="our-history">
     <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <img src="assets/img/Monitor.png" alt="" />
-            </div>
-            <div class="col-md-7">
-                <h2>Our History</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ip sum has been the industry's standard dummy text ever since the 1500s, when an unk- nown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <a href="#" class="button">Browse Our Work</a>
-            </div>
+
+       
+        <div class="col-md-7">
+            <h2>mantenimiento</h2>
+         
         </div>
+              <div class="row animated fadeIn fast">
+
+                <div class="col-12">          
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Buscar por nombre usuario" 
+                    #txtBuscar
+                    (keyup.enter)="buscar(txtBuscar.value)"
+                     (keyup)="buscar(txtBuscar.value)"
+
+                     />
+                    
+                </div>
+                </div>    
+
+                     
+
+                    <div class="col-12 " >
+                        <div class="card">
+
+                       <div class="card-body">
+                        <h4 class="card-title">Usuarios</h4>
+                        <h6 class="card-subtitle">{{totalUsuarios }} Usuarios registrados</h6>
+                        <div class="table-responsive m-t-40">
+                            <table id="myTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>imagen</th>
+                                        <th>Email</th>
+                                        <th>Nombre</th>                                        
+                                        <th>rol</th>
+                                        <th>ingreso</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                    <tbody >
+                                        <tr  >
+                                            <td  colspan="6">
+                                    <div class="col-12 ">     
+                                        <div class=" alert alert-info alert-dismissible fade show text-center fadeIn fast"
+                                        role="alert" *ngIf="cargando">
+                                           <strong>Cargando</strong> 
+                                          <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                                          <p>espere un momento por favor</p>
+                                         
+                                       </div>
+                                    </div> 
+                                            </td>
+                                </tr>
+                                </tbody>
+                               
+                              
+                                <tbody *ngIf="!cargando">
+                                 
+                                    <tr *ngFor="let usuario of usuarioss">
+                                        <td>
+                                          <img [src]="usuario.imagenUrl"  alt="user" class="img-circle" width="50" height="50">
+                                        </td>
+                                        <td>{{usuario.email}}</td>
+                                        <td>{{usuario.nombre}}</td>
+                                        <td>
+                                            <select aria-label="Default select example"  class="form-select form-select-sm"
+                                            (change)="cambiarRol(usuario)" [(ngModel)]="usuario.rol"
+                                             >
+                                               
+                                                <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+                                                <option value="USER_ROLE">USER_ROLE</option>
+                                                <option value="SUPER_ADMIN_ROLE">SUPER_ADMIN_ROLE</option>
+                                              </select>
+                                  
+                                        <td>
+                                            <span *ngIf="usuario.google" class="btn btn-danger btn-sm">gmail</span>
+                                            <span *ngIf="!usuario.google" class="btn btn-info btn-sm">email</span>
+                                                                        
+                                        <td class="text-center">
+                                          
+                                            <button class="btn btn-danger btn-sm"  (click)="borrarUsuario(usuario)">Eliminar</button>
+                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+
+                           
+
+
+
+                          </div>
+
+                          <div class="col-12 text-center">
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( - 5  )">Anterior</button> &nbsp;
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( + 5  )"
+                            >Siguiente</button>
+                        </div>
+
+                     </div>
+                 </div>
+              </div>
+
+          
+        </div>
+        <br />
+        <div class="col-12 text-center">
+            <a  [routerLink]="['/login']" (click)="logout()"  class="button">Logout</a>
     </div>
+</div>
 </section>
 
 <br />
+

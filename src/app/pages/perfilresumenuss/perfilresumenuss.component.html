@@ -5,13 +5,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <img src="assets/img/Monitor.png" alt="" />
+                <h2>Imagen</h2>
+                <img [src]="imgUrl"
+                 alt="" style="width: 50%; height: 66%; border-radius: 50%; border: 2px solid #000;" />
+                <br />
+
             </div>
             <div class="col-md-7">
-                <h2>Our History</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ip sum has been the industry's standard dummy text ever since the 1500s, when an unk- nown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <a href="#" class="button">Browse Our Work</a>
+                <h2 class="text-info" style="font-size: 25px;">usuaro:<span  class="text-danger " style="font-size: 25px;"  > {{usuario}}</span> </h2>
+                <p class="text-info" style="font-size: 25px;">usuario de cuenta con .gmail:  <span class="text-danger " style="font-size: 25px;"  >{{usuariomodel.google}}</span>  </p>
+                <p class="text-info" style="font-size: 25px;">rool usuario  en la app:  <span class="text-danger " style="font-size: 25px;"  >{{usuariomodel.rol}}</span>  </p>
+                <a  [routerLink]="['/login']" (click)="logout()"  class="button">Logout</a>
             </div>
         </div>
     </div>
