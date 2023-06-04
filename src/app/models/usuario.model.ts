@@ -33,13 +33,13 @@ export class Usuario {
     get imagenUrl() {
 
         if ( !this.img ) {
-            return `${ base_url }/uploads/usuarios/no-image`;
+            return `https://github.com/leofa741/apprizosfera-back/tree/master/uploads/usuarios/no-image`;
         } else if ( this.google ) {
-            return `${ base_url }/uploads/usuarios/${ this.img }`;
+            return `https://github.com/leofa741/apprizosfera-back/tree/master/uploads/usuarios/${ this.img }`;
         } else if ( this.img ) {
-            return `${ base_url }/uploads/usuarios/${ this.img }`;
+            return `https://github.com/leofa741/apprizosfera-back/tree/master/uploads/usuarios/${ this.img }`;
         } else {
-            return `${ base_url }/uploads/usuarios/no-image`;
+            return `https://github.com/leofa741/apprizosfera-back/tree/master/uploads/usuarios/no-image`;
         }
 
 
