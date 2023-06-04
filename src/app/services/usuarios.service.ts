@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/usuario.model';
 import { perfilForm } from '../interfaces/update-form.interfaces';
 
-const base_url = environment.base_url;
+const base_url = Proxy + environment.base_url;
 
 declare const gapi:any;
 declare const google: any;
