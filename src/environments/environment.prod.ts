@@ -3,7 +3,7 @@
 
 export const environment = {
   production: true,
-  base_url: 'https://apprizosfera-back.vercel.app/api'
+ //base_url: 'https://apprizosfera-back.vercel.app/api'
 };
 
 
