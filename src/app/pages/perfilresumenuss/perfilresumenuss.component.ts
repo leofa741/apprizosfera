@@ -31,7 +31,7 @@ export class PerfilresumenussComponent implements OnInit {
   isLoggedIn () {
     const token = localStorage.getItem('token') || '';
     if (token.length !== 0) {
-      this.imgUrl = this.usuarioService.usuario?.imagenUrl
+      this.imgUrl = this.usuarioService.usuario?.imagenUrl || '';
       this.usuario = this.usuarioService.usuario?.nombre
       this.usuariomodel = this.usuarioService.usuario!;
 
