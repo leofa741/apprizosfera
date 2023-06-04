@@ -10,7 +10,7 @@ export class FileupladService {
 
   constructor() { }
 
-  async fileUpload(  archivo: File, tipo: 'usuarios'|'productos'|'categorias',    id: string,) {     
+  async fileUpload(  archivo: File, tipo: 'productos'|'usuarios'|'categorias',    id: string,) {     
 
     try {
       const url = `${ base_url }/uploads/${ tipo }/${ id }`;
