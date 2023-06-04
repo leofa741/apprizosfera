@@ -1,4 +1,6 @@
-import { environment } from "src/environments/environment";
+
+
+import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
 
