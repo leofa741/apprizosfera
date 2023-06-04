@@ -1,0 +1,10 @@
+{
+  "/api": {
+      "target": "https://apprizosfera-back.vercel.app/",
+      "secure": false,
+      "pathRewrite": {
+          "^/api": ""
+      },
+      "changeOrigin": true
+  }
+}
