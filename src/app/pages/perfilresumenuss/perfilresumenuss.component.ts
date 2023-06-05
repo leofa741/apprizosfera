@@ -7,12 +7,13 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   templateUrl: './perfilresumenuss.component.html',
   styleUrls: ['./perfilresumenuss.component.css']
 })
-export class PerfilresumenussComponent implements OnInit {
 
+export class PerfilresumenussComponent implements OnInit {
 
   public usuario!: string;
   public imgUrl!: string;
   public usuariomodel!: Usuario;
+
   constructor(
     private usuarioService: UsuariosService,
   ) {  }
@@ -20,7 +21,6 @@ export class PerfilresumenussComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn ()
   }
-
  
 
   logout() {
@@ -30,17 +30,15 @@ export class PerfilresumenussComponent implements OnInit {
 
   isLoggedIn () {
     const token = localStorage.getItem('token') || '';
+
     if (token.length !== 0) {
       this.imgUrl = this.usuarioService.usuario?.imagenUrl || '';
       this.usuario = this.usuarioService.usuario?.nombre
-      this.usuariomodel = this.usuarioService.usuario!;
-
-    
-    
+      this.usuariomodel = this.usuarioService.usuario!;     
       return true
-    }
-    
+    }    
     return false;
+    
   }  
 
   

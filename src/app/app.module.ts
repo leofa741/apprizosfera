@@ -33,6 +33,8 @@ import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component
 import { PerfilresumenussComponent } from './pages/perfilresumenuss/perfilresumenuss.component';
 import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/usuariosmantenimiento.component';
 import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.component';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.com
     HeaderadminComponent,
     PerfilresumenussComponent,
     UsuariosmantenimientoComponent,
-    ModalImagenComponent
+    ModalImagenComponent,
+    CategoriasComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,

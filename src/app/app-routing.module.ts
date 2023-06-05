@@ -13,6 +13,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PerfilresumenussComponent } from './pages/perfilresumenuss/perfilresumenuss.component';
 import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/usuariosmantenimiento.component';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 
 
@@ -25,6 +27,8 @@ const routes: Routes = [
 { path: 'about', component: AboutsComponent , data: { titulo: 'About' }},
 { path: 'perfil', component: PerfilComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'perfil-usuario', component: PerfilresumenussComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
+{ path: 'categorias', component: CategoriasComponent, canActivate: [ authGuard ],data: { titulo: 'categorias de prductos'}},
+{ path: 'productos', component: ProductosComponent, canActivate: [ authGuard ],data: { titulo: 'productos'}},
 { path: 'mantenimiento-usuario', component: UsuariosmantenimientoComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
 { path: 'blog', component: BlogComponent , canActivate: [ authGuard ], data: { titulo: 'Blog' }},
