@@ -35,6 +35,7 @@ import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/us
 import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.component';
 import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { ProductosComponent } from './pages/productos/productos.component';
     UsuariosmantenimientoComponent,
     ModalImagenComponent,
     CategoriasComponent,
-    ProductosComponent
+    ProductosComponent,
+    ImagenPipe
   ],
   imports: [
     BrowserModule,

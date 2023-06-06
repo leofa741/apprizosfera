@@ -6,7 +6,7 @@
 
        
         <div class="col-md-7">
-            <h2>categotias</h2>
+            <h2>categorias</h2>
          
         </div>
               <div class="row animated fadeIn fast">
@@ -23,13 +23,20 @@
                         <div class="card">
 
                        <div class="card-body">
+                        <div class="text-right">
+                            <button class="btn btn-primary btn-sm" (click)="agregarCategoria()">
+                                <i class="fa fa-plus"></i>
+                                Agregar</button>
+
+                        </div>
                         <h4 class="card-title">Categorias</h4>
-                        <h6 class="card-subtitle">Categorias Registradas</h6>
+                        <h6 class="card-subtitle">{{totalCategorias}} Categorias</h6>
+                      
                         <div class="table-responsive m-t-40">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Foto</th>
+                                        <th>Imagen</th>
                                         <th>Nombre</th>                                        
                                         <th>Acciones</th>
                                     </tr>
@@ -37,9 +44,9 @@
                                 <tbody >
                                     <tr  >
                                         <td  colspan="6">
-                                <div class="col-12 ">     
+                                <div class="col-12 " >
                                     <div class=" alert alert-info alert-dismissible fade show text-center fadeIn fast"
-                                    role="alert" >
+                                    role="alert" *ngIf="cargando">
                                        <strong>Cargando</strong> 
                                       <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
                                       <p>espere un momento por favor</p>
@@ -50,17 +57,26 @@
                             </tr>
                             </tbody>
                            
-                                <tbody>
-                                    <tr>
-                                        <td>img</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Nombre" >
+                                 
+                                <tbody >
 
+                                    <tr *ngFor="let categoria of categorias" >
+                                        <td>
+                                           
+                                            <img [src]="categoria.img | imagen: 'categorias'" alt="" class="img-responsive" style="width: 60px;"    >
+                                           
                                         </td>
+
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="categoria.nombre" >  
+                                         </td>
                                         
                                         <td class="text-center">
-                                            <button class="btn btn-success btn-sm">Editar</button>
-                                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                                           
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fa fa-save"></i></button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -74,9 +90,7 @@
           
         </div>
         <br />
-        <div class="col-12 text-center">
-        <a href="#" class="button">Logout</a>
-    </div>
+      
 </div>
 </section>
 

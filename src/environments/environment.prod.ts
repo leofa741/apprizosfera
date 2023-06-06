@@ -3,7 +3,8 @@
 
 export const environment = {
   production: true,
-  base_url:  'https://apprizosfera-back-production.up.railway.app/api'
+  //base_url:  'https://apprizosfera-back-production.up.railway.app/api'
+  base_url:  'https://apprizosfera-back.onrender.com/api'
 };
 
 
