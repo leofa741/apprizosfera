@@ -11,7 +11,7 @@ export class ImagenPipe implements PipeTransform {
   transform(img:string = '', tipo: 'usuarios'|'categorias'|'productos'): string {
 
     if ( !img ) {
-      return img;
+      return `${ base_url }/uploads/${ tipo }/no-image`;
   } else if ( img.includes('https') ) {
       return img;
   } else if ( img ) {

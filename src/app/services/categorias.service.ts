@@ -38,14 +38,11 @@ export class CategoriasService {
             total: resp.total,
             categorias: resp.categorias,
         
-          }
-        }
-     
+          }}   
         )
-
       );
-
 }
+
 
 crearCategoria( nombre: string ) {
   const url = `${ base_url }/categorias`;
@@ -53,15 +50,28 @@ crearCategoria( nombre: string ) {
 
 }
 
-actualizarCategoria( categoria: Categoria ) {
-  const url = `${ base_url }/categorias/${ categoria._id }`;
-  return this.http.put( url, categoria, this.headers );
+actualizarCategoria(_id :string , nombre: string ) {
+  const url = `${ base_url }/categorias/${ _id }`;
+  return this.http.put( url, {  nombre }, this.headers );
 }
 
 
-borrarCategoria( _id: string ) {
+borrarCategoria( _id:any ) {
+  console.log("_id",_id);
   const url = `${ base_url }/categorias/${ _id }`;
   return this.http.delete( url, this.headers );
+}
+
+
+
+buscarCategoria( termino: string ) {
+  const url = `${ base_url }/buscar/${ termino }`;
+  return this.http.get( url, this.headers )
+    .pipe(
+      map( (resp:any )=>{
+        return resp.categorias;
+      })
+    );
 
 }
 

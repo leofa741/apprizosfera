@@ -66,7 +66,7 @@ export class ModalImagenComponent implements OnInit {
                 this.modalImagenService.nuevaImagen.emit( img );
                 this.ocultarModal();
                 Swal.fire('Actualizado', 'Imagen actualizada correctamente', 'success');
-              this.router.navigateByUrl('/mantenimiento-usuario');
+             
               }
               , 1000);             
               console.log(img);

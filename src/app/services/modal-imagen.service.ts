@@ -22,7 +22,7 @@ export class ModalImagenService {
 
   abrirModal(
     tipo: 'usuarios' | 'productos' | 'categorias',
-    id: string,
+    id: string = '',
     img?: string
   ) {
     this._mostrarModal = false;
