@@ -36,6 +36,7 @@ import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.com
 import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { SeccioncategComponent } from './components/seccioncateg/seccioncateg.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     ModalImagenComponent,
     CategoriasComponent,
     ProductosComponent,
-    ImagenPipe
+    ImagenPipe,
+    SeccioncategComponent
   ],
   imports: [
     BrowserModule,

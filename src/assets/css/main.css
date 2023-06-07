@@ -842,14 +842,26 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
       padding: 25px;
       height: 100px;
       -webkit-box-shadow: 0 2px 5px rgba(173, 173, 173, 0.2);
-      box-shadow: 0 2px 5px rgba(173, 173, 173, 0.2); }
+      box-shadow: 0 2px 5px rgba(129, 69, 69, 0.2); }
       .partners--item__image img {
-        -webkit-filter: grayscale(0) brightness(0) contrast(0);
-        filter: grayscale(0) brightness(0) contrast(0);
+     
         -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease; }
+        transition: all 0.3s ease;
+        transform: scale(1.1);
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      
+       }
     .partners--item:hover .partners--item__image {
-      background: #3c88e7; }
+
+      background: #3c88e7;
+      -webkit-box-shadow: 0 2px 5px rgba(173, 173, 173, 0.2);
+      box-shadow: 0 2px 5px rgba(129, 69, 69, 0.2);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+ 
+      
+     }
       .partners--item:hover .partners--item__image img {
         -webkit-filter: none;
         filter: none; }
@@ -1089,6 +1101,17 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
   .get-started p {
     font: 400 18px/25px "Source Sans Pro";
     margin-bottom: 70px; }
+
+    .get-started-1 {
+      padding: 140px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      background-image: url("../img/logo-6.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
 
 .our-history-about {
   padding: 140px 0;

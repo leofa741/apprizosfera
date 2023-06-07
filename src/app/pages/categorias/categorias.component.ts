@@ -42,7 +42,6 @@ export class CategoriasComponent implements OnInit {
     if (termino.length === 0) {
       return this.cargarCategorias();
     }
-
     this.categoriasService.buscarCategoria(termino)
       .subscribe((categorias: Categoria[]) => {
         this.categorias = categorias;
@@ -53,9 +52,7 @@ export class CategoriasComponent implements OnInit {
 
 
   cargarCategorias() {
-    this.cargando = true;
-
-   
+    this.cargando = true;   
 
     this.categoriasService.cargarCaregorias(  this.desde)
       .subscribe(resp => {
@@ -64,7 +61,6 @@ export class CategoriasComponent implements OnInit {
         this.cargando = false;
 
         console.log("cargando categorias",this.categorias);
-
 
       })
   }

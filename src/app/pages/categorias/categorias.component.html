@@ -3,10 +3,8 @@
 <section class="our-history">
     <div class="container">
 
-
         <div class="col-md-7">
             <h2>categorias</h2>
-
         </div>
         <div class="row animated fadeIn fast">
 
@@ -17,17 +15,12 @@
                 </div>
             </div>
 
-
-
             <div class="col-12 ">
                 <div class="card">
 
                     <div class="card-body">
                         <div class="text-right">
-                            <button class="btn btn-primary btn-sm" (click)="agregarCategoria()">
-                                <i class="fa fa-plus"></i>
-                                Agregar</button>
-
+                            <button class="btn btn-primary btn-sm" (click)="agregarCategoria()"><i class="fa fa-plus"></i> Agregar</button>
                         </div>
                         <h4 class="card-title">Categorias</h4>
                         <h6 class="card-subtitle">{{totalCategorias}} Categorias</h6>
@@ -65,25 +58,18 @@
 
                                             <img [src]="categoria.img | imagen: 'categorias'" alt=""
                                                 class="img-responsive cursor" style="width: 60px;"
-                                                (click)=" abrirModal(categoria)"
-                                               
-                                                >
+                                                (click)=" abrirModal(categoria)">
 
                                         </td>
 
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Nombre"
-                                                [(ngModel)]="categoria.nombre">
+                                            <input type="text" class="form-control" placeholder="Nombre"  [(ngModel)]="categoria.nombre">
                                         </td>
 
                                         <td class="text-center">
+                                            <button (click)="guardarCategoria(categoria)"  class="btn btn-success btn-sm"> <i class="fa fa-save"></i></button>
 
-                                            <button (click)="guardarCategoria(categoria)"
-                                                class="btn btn-success btn-sm">
-                                                <i class="fa fa-save"></i></button>
-
-                                            <button class="btn btn-danger btn-sm" (click)="borrarCategoria(categoria)">
-                                                <i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-sm" (click)="borrarCategoria(categoria)"> <i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
