@@ -250,6 +250,7 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
       height: 70px;
       width: 70px;
       border: 1px solid #e5e5e5;
+      background-color: #202020;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -514,7 +515,7 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
       .case-study--left__textslider__image {
         height: 85px;
         width: 85px;
-        background: #3c88e7;
+        background: #202020;
         color: #ffffff;
         display: -webkit-box;
         display: -webkit-flex;
@@ -1065,7 +1066,7 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
   position: relative;
   overflow: hidden;
   color: #ffffff;
-  background-image: url("../img/get-started.png");
+  background-image: url("../img/logo-5.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }

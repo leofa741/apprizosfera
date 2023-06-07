@@ -12,7 +12,7 @@ declare function customInitTether(): any;
 })
 export class PortfolioComponent implements OnInit{
 
-  ngOnInit() : void {
+  ngOnInit()  {
  
     customInit();
    

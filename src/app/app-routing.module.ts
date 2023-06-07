@@ -23,7 +23,7 @@ const routes: Routes = [
 { path: 'login', component: LoginComponent , data: { titulo: 'Login' }},
 { path: 'register', component: RegisterComponent , data: { titulo: 'Register' }}, 
 { path: 'home', component: HomeComponent , data: { titulo: 'Home' }},
-{ path: 'portfolio', component: PortfolioComponent , data: { titulo: 'Portfolio' }},
+{ path: 'productos', component: PortfolioComponent , data: { titulo: 'Productos Regionales' }},
 { path: 'about', component: AboutsComponent , data: { titulo: 'About' }},
 { path: 'perfil', component: PerfilComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'perfil-usuario', component: PerfilresumenussComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
