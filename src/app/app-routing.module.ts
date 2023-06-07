@@ -28,7 +28,7 @@ const routes: Routes = [
 { path: 'perfil', component: PerfilComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'perfil-usuario', component: PerfilresumenussComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'categorias', component: CategoriasComponent, canActivate: [ authGuard ],data: { titulo: 'categorias de prductos'}},
-{ path: 'productos', component: ProductosComponent, canActivate: [ authGuard ],data: { titulo: 'productos'}},
+{ path: 'admin-productos', component: ProductosComponent, canActivate: [ authGuard ],data: { titulo: 'productos'}},
 { path: 'mantenimiento-usuario', component: UsuariosmantenimientoComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
 { path: 'blog', component: BlogComponent , canActivate: [ authGuard ], data: { titulo: 'Blog' }},
