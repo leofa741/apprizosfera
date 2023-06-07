@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categoria.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,12 +20,13 @@ export class CategoriasComponent implements OnInit {
   public totalCategorias: number = 0;
   public imagenT: string = '';
   public cargando: boolean = true;
-
+  public desde: number = 0;
   constructor(
     private http: HttpClient,
     private router: Router,
     private categoriasService: CategoriasService,
-    public modalImagenService: ModalImagenService
+    public modalImagenService: ModalImagenService,
+    private usuarioService: UsuariosService,  
 
   ) { }
 
@@ -52,11 +55,15 @@ export class CategoriasComponent implements OnInit {
   cargarCategorias() {
     this.cargando = true;
 
-    this.categoriasService.cargarCaregorias()
+   
+
+    this.categoriasService.cargarCaregorias(  this.desde)
       .subscribe(resp => {
         this.totalCategorias = resp.total;
         this.categorias = resp.categorias;
         this.cargando = false;
+
+        console.log("cargando categorias",this.categorias);
 
 
       })
@@ -81,15 +88,22 @@ export class CategoriasComponent implements OnInit {
       .subscribe((resp: any) => {
         this.categorias.push(resp.categoria);
         Swal.fire('Creado', resp.categoria.nombre, 'success');
+        this.cargarCategorias();
       }
       )
   }
 
 
   guardarCategoria(categoria: Categoria) {
+    if(categoria.usuario?._id !== this.usuarioService.usuario.uid){
+      Swal.fire('Error', 'No puede editar esta categoria,solo su categria es editable', 'error');
+      return;
+    }
+
     this.categoriasService.actualizarCategoria(categoria._id!, categoria.nombre)
       .subscribe(resp => {
         Swal.fire('Guardado', categoria.nombre, 'success');
+        this.cargarCategorias();
       },
         (err) => {
           Swal.fire('Error', err.error.msg, 'error');
@@ -104,6 +118,10 @@ export class CategoriasComponent implements OnInit {
 
 
   borrarCategoria(categoria: Categoria) {
+    if(categoria.usuario?._id !== this.usuarioService.usuario.uid){
+      Swal.fire('Error', 'No puede borrar esta categoria,solo su categria puede borrar', 'error');
+      return;
+    }
     this.categoriasService.borrarCategoria(categoria._id)
       .subscribe(resp => {
         Swal.fire('Borrado', categoria.nombre, 'success');
@@ -114,8 +132,24 @@ export class CategoriasComponent implements OnInit {
 
 
   abrirModal(categoria: Categoria) {
+    if(categoria.usuario?._id !== this.usuarioService.usuario.uid){
+      Swal.fire('Error', 'No puede editar esta categoria,solo su categria es editable', 'error');
+      return;
+    }
 
     this.modalImagenService.abrirModal('categorias', categoria._id, categoria.img);
+  }
+
+  cambiarDesde( valor: number ) {      
+    const desde = this.desde + valor;     
+    if ( desde >= this.totalCategorias ) {
+      return;
+    }  
+    if ( desde < 0 ) {
+      return;
+    }  
+    this.desde += valor;
+    this.cargarCategorias();
   }
 
 

@@ -36,7 +36,7 @@
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Modificar <br/>Imagen</th>
+                                        <th>Modificar <br/>Logo </th>
                                         <th>Nombre</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -88,6 +88,13 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( - 5  )">Anterior</button> &nbsp;
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( + 5  )"
+                            >Siguiente</button>
                         </div>
 
                     </div>
