@@ -23,7 +23,8 @@ export class SeccioncategComponent implements OnInit {
 
 
   cargarCategorias() {
-    this.categoriasService.cargarCaregorias(0)
+    this.cargando = true;
+    this.categoriasService.cargarCaregorias()
       .subscribe(resp => {
         this.categorias = resp.categorias;
         this.cargando = false;

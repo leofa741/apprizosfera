@@ -37,6 +37,8 @@ import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { SeccioncategComponent } from './components/seccioncateg/seccioncateg.component';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { ProductonewComponent } from './pages/productonew/productonew.component';
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { SeccioncategComponent } from './components/seccioncateg/seccioncateg.co
     CategoriasComponent,
     ProductosComponent,
     ImagenPipe,
-    SeccioncategComponent
+    SeccioncategComponent,
+    ProductoComponent,
+    ProductonewComponent
   ],
   imports: [
     BrowserModule,

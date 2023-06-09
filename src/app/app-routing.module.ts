@@ -15,6 +15,8 @@ import { PerfilresumenussComponent } from './pages/perfilresumenuss/perfilresume
 import { UsuariosmantenimientoComponent } from './pages/usuariosmantenimiento/usuariosmantenimiento.component';
 import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { ProductonewComponent } from './pages/productonew/productonew.component';
 
 
 
@@ -29,9 +31,12 @@ const routes: Routes = [
 { path: 'perfil-usuario', component: PerfilresumenussComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'categorias', component: CategoriasComponent, canActivate: [ authGuard ],data: { titulo: 'categorias de prductos'}},
 { path: 'admin-productos', component: ProductosComponent, canActivate: [ authGuard ],data: { titulo: 'productos'}},
+{ path: 'admin-producto/:id', component: ProductoComponent, canActivate: [ authGuard ],data: { titulo: 'actualizar producto'}},
+{ path: 'admin-producto-nuevo', component: ProductonewComponent, canActivate: [ authGuard ],data: { titulo: 'producto nuevo'}},
+{ path: 'producto/:id', component: ProductonewComponent, canActivate: [ authGuard ],data: { titulo: 'producto nuevo'}},
 { path: 'mantenimiento-usuario', component: UsuariosmantenimientoComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
-{ path: 'blog', component: BlogComponent , canActivate: [ authGuard ], data: { titulo: 'Blog' }},
+{ path: 'blog', component: BlogComponent ,data: { titulo: 'Blog' }},
 { path: 'blog/:id', component: BlogComponent , data: { titulo: 'Blog' }},
 { path: 'contact', component: ContactComponent , data: { titulo: 'Contact' }},
 { path: '', redirectTo: '/home', pathMatch: 'full' },

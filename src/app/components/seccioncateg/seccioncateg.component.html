@@ -5,7 +5,13 @@
         <span class="dot-dash dark">.</span>
 
 
+
+
         <div class="partners--container" >
+            <div *ngIf="cargando"  role="alert" class="loader"> <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>Cargando...</div>
+
+
+
             <div class="partners--item" *ngFor="let categoria of categorias" >
                 <div class="partners--item__image">
                    
@@ -15,8 +21,6 @@
                 </div>
             </div>
           
-       
-
         </div>
     </div>
 </section>

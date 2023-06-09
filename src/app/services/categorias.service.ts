@@ -11,6 +11,7 @@ const base_url =  environment.base_url;
   providedIn: 'root'
 })
 export class CategoriasService {
+ 
 
   constructor(
     private http: HttpClient  ,

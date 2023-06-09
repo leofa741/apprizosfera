@@ -842,29 +842,35 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
       padding: 25px;
       height: 100px;
       -webkit-box-shadow: 0 2px 5px rgba(173, 173, 173, 0.2);
-      box-shadow: 0 2px 5px rgba(129, 69, 69, 0.2); }
+      box-shadow: 0 2px 5px rgba(41, 31, 31, 0.2); }
       .partners--item__image img {
-     
+
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
-        transform: scale(1.1);
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-      
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+       
+   
        }
     .partners--item:hover .partners--item__image {
 
-      background: #3c88e7;
-      -webkit-box-shadow: 0 2px 5px rgba(173, 173, 173, 0.2);
-      box-shadow: 0 2px 5px rgba(129, 69, 69, 0.2);
       -webkit-transform: scale(1.1);
       transform: scale(1.1);
- 
+    
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+     
       
      }
       .partners--item:hover .partners--item__image img {
-        -webkit-filter: none;
-        filter: none; }
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; 
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+       }
 
 .our-blog {
   padding: 140px 0 0;

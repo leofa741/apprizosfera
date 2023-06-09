@@ -136,7 +136,7 @@ export class CategoriasComponent implements OnInit {
     this.modalImagenService.abrirModal('categorias', categoria._id, categoria.img);
   }
 
-  cambiarDesde( valor: number ) {      
+  cambiarDesde( valor: number ) {       
     const desde = this.desde + valor;     
     if ( desde >= this.totalCategorias ) {
       return;
