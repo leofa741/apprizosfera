@@ -35,12 +35,12 @@ export class Usuario {
         if ( !this.img ) {
             return `${ base_url }/uploads/usuarios/no-image`;
         } else if ( this.google ) {
-            return `${ base_url }/uploads/usuarios/${ this.img }`;
+            return this.img;
         } else if ( this.img ) {
-            return `${ base_url }/uploads/usuarios/${ this.img }`;
+            return this.img;
         } else {
             return `${ base_url }/uploads/usuarios/no-image`;
-        }
+        } 
 
 
 
