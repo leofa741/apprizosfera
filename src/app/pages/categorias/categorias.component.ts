@@ -17,10 +17,12 @@ import Swal from 'sweetalert2';
 export class CategoriasComponent implements OnInit {
 
   public categorias: Categoria[] = [];
-  public totalCategorias: number = 0;
+ 
   public imagenT: string = '';
   public cargando: boolean = true;
   public desde: number = 0;
+  public totalCategorias: number = 0;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -138,7 +140,7 @@ export class CategoriasComponent implements OnInit {
 
   cambiarDesde( valor: number ) {       
     const desde = this.desde + valor;     
-    if ( desde >= this.totalCategorias ) {
+    if ( desde >= this.totalCategorias ) { 
       return;
     }  
     if ( desde < 0 ) {

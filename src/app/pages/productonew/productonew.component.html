@@ -5,28 +5,12 @@
         <div class="row">
 
 
-
             <div class="col">
 
-                <h2 class="text-info" style="font-size: 25px;">prducto:<span class="text-danger "
+                <h2 class="text-info" style="font-size: 25px;">producto:<span class="text-danger "
                         style="font-size: 25px;"></span> </h2>
                 <form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="prodtcForm"
-                    (ngSubmit)="guardar()">
-
-                    <div *ngIf="productoseleccionado" >
-
-
-
-                    <h2>Imagen</h2>
-                    <img [src]="productoseleccionado?.img | imagen: 'productos'"
-                     alt="" class="img-responsive cursor" style="width: 70px;" />
-                    <br />
-                    <input type="file" />
-
-                    <br />
-                    <br />
-                    <button class="button small btn btn-block " type="submit"> subir</button>
-                  </div>
+                    (ngSubmit)="guardar()">              
 
                     <h3 class="box-title m-b-20">Ingrese nombre</h3>
                     <div class="form-group">
@@ -61,6 +45,8 @@
                         </div>
                     </div>
 
+               
+
 
                     <h3 class="box-title m-b-20">Ingrese categoria</h3>
 
@@ -75,13 +61,8 @@
                             <p class=" text-danger"
                                 *ngIf="prodtcForm.controls['categoria'].invalid && prodtcForm.controls['categoria'].touched">
                                 La categoria es obligatorio</p>
-
-
                         </div>
                     </div>
-
-
-
 
                     <div class="form-group text-center p-b-20">
                         <div class="col-xs-12">
@@ -92,31 +73,21 @@
                                 <i class="fa fa-save"> </i> Guardar</button>
                         </div>
                     </div>
-
                 </form>
-
             </div>
 
-
-
             <div class="col">
-
                 <h2 class="text-info" style="font-size: 25px;">categoria:<span class="text-danger "
                         style="font-size: 25px;"></span> </h2>
 
-
                 <div class="col-md-3">
                     <h2>{{categoriaseleccionad?.nombre}}</h2>
-
                     <div *ngIf="categoriaseleccionad?.img">
-
                         <img [src]="categoriaseleccionad?.img | imagen: 'categorias'" alt=""
                             class="img-responsive cursor" style="width: 170px;" />
-
                     </div>
 
                     <br />
-
                     <br />
                     <br />
 

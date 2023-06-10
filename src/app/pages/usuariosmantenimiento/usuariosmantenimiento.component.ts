@@ -32,7 +32,7 @@ export class UsuariosmantenimientoComponent  implements OnInit {
   ngOnInit() {
     this.isLoggedIn ()
     this.cargarUsuarios();
-    this.modalImagenService.nuevaImagen.subscribe( img => this.cargarUsuarios() );
+    this.modalImagenService.nuevaImagen.subscribe( img => this.cargarUsuarios() ); 
    
    
   }
@@ -40,7 +40,7 @@ export class UsuariosmantenimientoComponent  implements OnInit {
   abrirModal(usuario: Usuario) {
     this.modalImagenService.abrirModal('usuarios', usuario.uid, usuario.img!);
     console.log(usuario);
-   // this.modalImagenService.setImg(imagenUrl);
+   // this.modalImagenService.setImg(imagenUrl); 
   }
 
  

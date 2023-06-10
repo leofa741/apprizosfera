@@ -72,42 +72,12 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
     this.usuarioService.loginGoogle(response.credential)
     .subscribe( resp => {
       
-      this.router.navigateByUrl('/blog');       
+      this.router.navigateByUrl('/admin');       
     }
     )
 
   }
 
-
-
-  // login() {
-  //       this.formSubmitted = true;
-  //       if ( this.loginForm.invalid ) {
-  //         return;
-  //       } 
-    
-  //       this.usuarioService.login(this.loginForm.value)
-  //            .subscribe( resp => {
-  //         const email= this.loginForm.get('email')?.value;      
-
-     
-  //         this.ngZone.run(() => { 
-  //         if ( this.loginForm.get('remember')?.value === true ) {
-  //           localStorage.setItem('email', email? email : '');
-  //         } else {
-  //           localStorage.removeItem('email');
-  //         }
-
-            
-  //         this.router.navigateByUrl('/blog');  
-  //       })  
-
-  //       }, (err) => {
-  //         // Si sucede un error
-  //             Swal.fire('Error', err.error.msg, 'error' );
-  //       }
-  //    )
-  // }
 
   login() {
     this.formSubmitted = true;
@@ -124,7 +94,7 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
             } else {
               localStorage.removeItem('email');
             }
-            this.router.navigateByUrl('/blog');
+            this.router.navigateByUrl('/admin');
           })
           }, (err) => {
             // Si sucede un error

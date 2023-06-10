@@ -40,7 +40,7 @@
                                         <th>disponible</th>
                                         <th>Acciones</th>
                                     </tr>
-                                </thead>
+                                </thead> 
                                 <tbody >
                                     <tr>
                                         <td  colspan="7">
@@ -69,12 +69,12 @@
                                         <td>{{produc.nombre}}</td>
                                         <td>{{produc.descripcion}}</td>
                                         <td>{{produc.precio}}</td>
-                                        <td>{{produc.linkdepago}}</td>
+                                        <td>{{produc.linkdepago | slice:0:34}}......</td>
                                         <td>{{produc.disponible}}</td>
                                                                         
                                       
                                         <td class="text-center">
-                                            <button [routerLink]="['/admin-producto', produc._id]" class="btn btn-success btn-sm">Editar</button>
+                                            <button [routerLink]="['/producto', produc._id]" class="btn btn-success btn-sm">Editar</button>
                                             <button class="btn btn-danger btn-sm"
                                             (click)="borrarProducto(produc)"
                                             >Eliminar</button>
@@ -83,13 +83,18 @@
                                 </tbody>
                             </table> 
                           </div>
+
+
                           <div class="col-12 text-center">
+                            <p>Mostrando {{desde}}  de {{totalRegistros}} registros</p>
                             <button class="btn btn-info btn-sm"
-                            (click)="cambiarDesde( - 5  )">Anterior</button> &nbsp;
+                            (click)="cambiarDesde( - 6  )">Anterior</button> &nbsp;
                             <button class="btn btn-info btn-sm"
-                            (click)="cambiarDesde( + 5  )"
+                            (click)="cambiarDesde( + 6  )"
                             >Siguiente</button>
                         </div>
+
+
                      </div>
                  </div>
               </div>

@@ -42,34 +42,34 @@ export class ProductoService {
           }}
         )
       );
-}
+    }
 
-cargarPrductosPorCategoria( categoria: string, desde: number = 0 ) {
-  const url = `${ base_url }/productos/categoria/${ categoria }?desde=${ desde }`;
-
-  return this.http.get( url, this.headers )
-    .pipe(
-      map( (resp:any )=>{
-        return {
-          total: resp.total,
-          productos: resp.productos,
-      
-        }}
-      )
-    );
-
+    cargarPrductosPorId(id: string ) {
+      const url = `${ base_url }/productos/${id}`;
+  
+      return this.http.get( url, this.headers )
+        .pipe(
+          map( (resp:any )=>{
+            return {        
+              productos: resp,    
+          
+            }}
+          )
+        );
       }
+  
 
-      crearProducto(producto: { nombre: string, precio: number, categoria: string, descripcion: string } ) {   
+
+      crearProducto(producto: { nombre: string, precio: number,linkdepago:string, categoria: string, descripcion: string } ) {   
          const url = `${ base_url }/productos`;
-         return this.http.post( url, {nombre: producto.nombre, precio: producto.precio, categoria: producto.categoria, descripcion: producto.descripcion
+         return this.http.post( url, {nombre: producto.nombre, precio: producto.precio,linkdepago:producto.linkdepago, categoria: producto.categoria, descripcion: producto.descripcion
         }, this.headers );
       
       }
 
-      actualizarProducto( producto: Producto ) {
-        const url = `${ base_url }/productos/${ producto._id }`;
-        return this.http.put( url, { producto }, this.headers );
+      actualizarProducto( producto: Producto ) {        
+
+        return this.http.put(`${base_url}/productos/${producto._id}`, producto, this.headers);
       }
 
       borrarProducto( _id:any ) {

@@ -33,7 +33,7 @@ const routes: Routes = [
 { path: 'admin-productos', component: ProductosComponent, canActivate: [ authGuard ],data: { titulo: 'productos'}},
 { path: 'admin-producto/:id', component: ProductoComponent, canActivate: [ authGuard ],data: { titulo: 'actualizar producto'}},
 { path: 'admin-producto-nuevo', component: ProductonewComponent, canActivate: [ authGuard ],data: { titulo: 'producto nuevo'}},
-{ path: 'producto/:id', component: ProductonewComponent, canActivate: [ authGuard ],data: { titulo: 'producto nuevo'}},
+{ path: 'producto/:id', component: ProductoComponent, canActivate: [ authGuard ],data: { titulo: 'Actualizar producto'}},
 { path: 'mantenimiento-usuario', component: UsuariosmantenimientoComponent, canActivate: [ authGuard ],data: { titulo: 'perfil de usuario'}},
 { path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
 { path: 'blog', component: BlogComponent ,data: { titulo: 'Blog' }},

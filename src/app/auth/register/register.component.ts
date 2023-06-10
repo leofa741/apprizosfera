@@ -47,7 +47,7 @@ export class RegisterComponent   {
         .subscribe( resp => {
           
           // Navegar al Dashboard
-          this.router.navigateByUrl('/blog');
+          this.router.navigateByUrl('/admin');
 
         }, (err) => {
           // Si sucede un error

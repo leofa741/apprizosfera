@@ -64,9 +64,9 @@
                                  
                                     <tr *ngFor="let usuario of usuarioss">
                                         <td>
-                                          <img [src]="usuario.imagenUrl"  alt="user" class="img-circle cursor" width="50" height="50"
-                                            (click)=" abrirModal(usuario)"
-                                          >
+                                            <img [src]="usuario.img | imagen: 'usuarios'" alt=""
+                                            class="img-responsive cursor" style="width: 60px;"
+                                            (click)=" abrirModal(usuario)">
                                         </td>
                                         <td>{{usuario.email}}</td>
                                         <td>{{usuario.nombre}}</td> 

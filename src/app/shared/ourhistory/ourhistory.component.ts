@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 declare function customboostrapinit(): any;
@@ -14,7 +15,10 @@ declare function customInitSlick(): any;
 })
 export class OurhistoryComponent implements OnInit{
 
-  constructor() { }
+  constructor(
+    private router: Router,
+
+  ) { }
 
 
 

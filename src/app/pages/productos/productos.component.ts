@@ -16,6 +16,7 @@ export class ProductosComponent  implements OnInit {
   public producto: Producto[] = [];
 
   public desde: number = 0;
+  public hasta : number = 0;
   public totalRegistros: number = 0;
   public cargando: boolean = true;  
   public ok: boolean = false;
@@ -25,7 +26,7 @@ export class ProductosComponent  implements OnInit {
     private router: Router,
     private productoService: ProductoService,
     public modalImagenService: ModalImagenService,
-    private usuarioService: UsuariosService,  
+    private usuarioService: UsuariosService,   
   ) { }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class ProductosComponent  implements OnInit {
 
 cargarProductos() {
   this.cargando = true;
-  this.productoService.cargarPrductos()
+  this.productoService.cargarPrductos( this.desde )
     .subscribe( ({ productos }) => {
       this.cargando = false;
       this.producto = productos.productos;
@@ -50,15 +51,25 @@ cargarProductos() {
 
 
 cambiarDesde( valor: number ) {      
-  const desde = this.desde + valor;     
+
+  const desde = this.desde + valor;
+
+  const hasta = this.hasta + valor;
+
+
+  console.log(desde);
   if ( desde >= this.totalRegistros ) {
     return;
-  }  
+  }
+
   if ( desde < 0 ) {
     return;
-  }  
+  }
+
   this.desde += valor;
+  this.hasta += valor- this.totalRegistros;
   this.cargarProductos();
+
 }
 
 
@@ -85,6 +96,8 @@ buscar(termino: string) {
     )
 }
 
+
+
 borrarProducto( producto: Producto ) {
   if(producto.usuario?._id !== this.usuarioService.usuario.uid){
     Swal.fire('Error', 'No puede borrar este producto,solo sus productos son editable', 'error');
@@ -110,6 +123,16 @@ borrarProducto( producto: Producto ) {
         });
     }
   });
+}
+
+
+actualizarProducto( producto: Producto ) {
+
+  this.productoService.actualizarProducto( producto )
+    .subscribe( resp => {
+      Swal.fire('Guardado', producto.nombre, 'success');
+    });
+
 }
 
 

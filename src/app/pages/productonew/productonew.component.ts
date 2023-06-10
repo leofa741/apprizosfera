@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categoria.model';
 import { Producto } from 'src/app/models/prducto.model';
 import { CategoriasService } from 'src/app/services/categorias.service';
@@ -19,7 +19,7 @@ export class ProductonewComponent implements OnInit {
   public prodtcForm!: FormGroup;
   public categorias: Categoria[] = [];
   public categoriaseleccionad: Categoria | undefined;
-  public productoseleccionado: Producto | undefined;
+  public productoseleccionado!: any;
 
   constructor(
     private router: Router,
@@ -27,14 +27,17 @@ export class ProductonewComponent implements OnInit {
     private categoriasService: CategoriasService,
     private productoService: ProductoService,
  
+ 
   ) { }
 
   ngOnInit() {
+
     this.prodtcForm = this.fb.group({
       nombre: ['',Validators.required],
       precio: ['',Validators.required],
       categoria: ['',Validators.required],
-      descripcion: ['',Validators.required] 
+      descripcion: ['',Validators.required],
+      linkdepago: ['']
       
     })
 
@@ -42,11 +45,31 @@ export class ProductonewComponent implements OnInit {
 
     this.prodtcForm.get('categoria')?.valueChanges
     .subscribe( cat => {
-      this.categoriaseleccionad = this.categorias.find(categoria => categoria._id === cat);
-  
-    }
-    )
+      this.categoriaseleccionad = this.categorias.find(categoria => categoria._id === cat);  
+    }) 
     
+   
+    
+  }
+
+
+  cargarProducto(id: string) {   
+
+    this.productoService.cargarPrductosPorId(id)
+      .subscribe(producto => {
+
+        this.prodtcForm.setValue({
+          nombre: producto.productos.productos.nombre,
+          precio: producto.productos.productos.precio,
+          descripcion: producto.productos.productos.descripcion,
+          categoria: producto.productos.productos.categoria._id,
+          linkdepago: producto.productos.productos.linkdepago
+       
+        });
+
+        
+      });
+
   }
 
 
@@ -56,9 +79,8 @@ export class ProductonewComponent implements OnInit {
     this.productoService.crearProducto(this.prodtcForm.value)
     .subscribe( (resp:any) => {     
       Swal.fire('Guardado', 'Producto guardado correctamente', 'success');
-      this.router.navigateByUrl(`/producto/${resp.producto._id}`);
-    }
-    )
+      this.router.navigateByUrl('/admin-productos');     
+    } )
   }
 
 
