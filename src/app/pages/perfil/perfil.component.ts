@@ -21,6 +21,7 @@ export class PerfilComponent  implements OnInit {
   public imagenSubir!: File;
   public imgUrl!: string;
   public usuariogoogle = this.usuarioService.usuario.google;
+  public usuariomodel!: Usuario;
 
   public registerForm = this.fb.group({
     nombre: ['', Validators.required ],
@@ -40,7 +41,7 @@ export class PerfilComponent  implements OnInit {
 
     this.usuario = this.usuarioService.usuario.nombre;
     this.imgUrl = this.usuarioService.usuario.imagenUrl;
-
+    this.usuariomodel = this.usuarioService.usuario!; 
     console.log("igoo",this.usuarioService.usuario.google);
 
     this.usuariogoogle   

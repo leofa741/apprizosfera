@@ -75,10 +75,7 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
     .subscribe( resp => {     
       
       this.router.navigateByUrl('/admin');         
-    } , (err) => {
-      // Si sucede un error
-          Swal.fire('Error', err.error.msg, 'error' );
-    }
+    } 
     )
   }
 

@@ -146,8 +146,8 @@ export class UsuariosService {
           return this.http.post(`${ base_url }/login/google`, { token } )
                 .pipe(
                   tap( (resp: any) => {                  
-                    // console.log(resp.msg); 
-                    const {aud, email, google, name, role, picture  = '', uid } = resp.msg;
+                     console.log(resp); 
+                    const {email, google, name, role, picture  = '', uid } = resp;
                     // console.log(aud,email, google, name, role, picture, uid); 
                      localStorage.setItem('token', resp.token )
                      localStorage.setItem('email', email );

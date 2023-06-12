@@ -27,32 +27,32 @@
                     <h3 class="box-title m-b-20">Actualizar</h3>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text"  placeholder="nombre" formControlName="nombre" required autofocus [readOnly]="usuariogoogle">
+                            <input class="form-control" type="text"  placeholder="{{usuario}}" formControlName="nombre"  >
                             <p *ngIf=" camposNoValidos('nombre')" class=" text-danger">El nombre es obligatorio</p>
                         </div>  
                     </div>
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text"  placeholder="Email" formControlName="email" required [readOnly]="usuariogoogle">
+                            <span class="text-danger " *ngIf="usuariogoogle">INGRESAR EL MISMO EMAIL : <span class="text-info" >{{usuariomodel.email}}</span></span>
+                            <input class="form-control" type="text"  placeholder="{{usuariomodel.email}}" formControlName="email"      >
                             <p *ngIf=" camposNoValidos('email')"class=" text-danger">El email es obligatorio</p>
                         </div>
                     </div> 
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text"  placeholder="formato numero whatsap +54911xxxxxxxx" formControlName="telefono" required [readOnly]="usuariogoogle">
+                            <span class="text-danger " *ngIf="usuariogoogle">INGRESAR FORMATO whatsap : <span class="text-info" >+54911xxxxxxxx"</span></span>
+                            <input class="form-control" type="text"  placeholder="formato numero whatsap +54911xxxxxxxx" formControlName="telefono" required    >
                             <p *ngIf=" camposNoValidos('telefono')"class=" text-danger">El telefono es obligatorio</p>
                         </div>
                     </div> 
 
                      <div class="form-group text-center p-b-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit"[disabled]="usuariogoogle"
-                           *ngIf="!registerForm.invalid" 
-
-
-                            >
+                            <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit"
+                         
+                           >
                                 <i class="fa fa-refresh"></i> Actualizar</button>
                         </div>
                     </div>                 
