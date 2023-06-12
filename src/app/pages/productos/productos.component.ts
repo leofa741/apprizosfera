@@ -26,7 +26,7 @@ export class ProductosComponent  implements OnInit {
     private router: Router,
     private productoService: ProductoService,
     public modalImagenService: ModalImagenService,
-    private usuarioService: UsuariosService,   
+   public usuarioService: UsuariosService,   
   ) { }
 
   ngOnInit() {
@@ -43,6 +43,7 @@ cargarProductos() {
       this.producto = productos.productos;
       this.totalRegistros = productos.total;
       this.ok = productos.ok;
+      console.log(this.producto);
     });
 }
 
@@ -124,6 +125,10 @@ borrarProducto( producto: Producto ) {
 
 
 actualizarProducto( producto: Producto ) {
+  if(producto.usuario?._id !== this.usuarioService.usuario.uid){
+    Swal.fire('Error', 'No puede borrar este producto,solo sus productos son editable', 'error');
+    return;
+  }
 
   this.productoService.actualizarProducto( producto )
     .subscribe( resp => {

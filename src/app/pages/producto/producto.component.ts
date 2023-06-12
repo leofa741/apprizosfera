@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categoria.model';
+import { Producto } from 'src/app/models/prducto.model';
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { ProductoService } from 'src/app/services/producto.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,6 +19,7 @@ export class ProductoComponent implements OnInit {
   public categorias: Categoria[] = [];
   public categoriaseleccionad: Categoria | undefined;
   public productoseleccionado!: any;
+  producto: any;
 
   constructor(
     private router: Router,
@@ -24,7 +27,7 @@ export class ProductoComponent implements OnInit {
     private categoriasService: CategoriasService,
     private productoService: ProductoService,
     private activatedRoute: ActivatedRoute,
-   
+    private usuarioService: UsuariosService, 
  
   ) { }
 
@@ -73,7 +76,7 @@ export class ProductoComponent implements OnInit {
 
 
   guardar(){  
-
+  
     const data = {
       ...this.prodtcForm.value,
       _id: this.activatedRoute.snapshot.params['id']
