@@ -1,113 +1,74 @@
 
 
- <div class="wrapper">
-     <section class="recent-works">
-         <div class="container">
-             <h2>Recent Works</h2>
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-             <span class="dot-dash dark">.</span>
-             <div class="recent-works--nav">
-                 <ul>
-                     <li class="active" data-filter="*">All Items</li>
-                     <li data-filter=".print">Print Design</li>  
-                     <li data-filter=".animation">Animation</li>
-                     <li data-filter=".art">Art</li>
-                     <li data-filter=".web">Web Design</li>
-                     <li data-filter=".photo">Photography</li>
-                     <li data-filter=".video">Video</li>
-                 </ul>
-             </div>
-         </div>
-         <div class="recent-works--items">
-             <div class="recent-works--items__item web">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/3.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item print">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/4.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item art">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/3.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item web">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/4.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item print">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/4.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item web">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/3.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item web">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/4.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="recent-works--items__item art">
-                 <a href="single-portfolio.html">
-                     <img src="assets/img/3.jpg" alt="">
-                     <div class="inner-item">
-                         <div>
-                             <h4>T-Shirt Design</h4>
-                             <p>art / t-shirt</p>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-         </div>
-     </section>
+<div class="wrapper">
+    <section class="our-blog">
+        <div class="container">
+            <h2>NUESTRAS ARTESANIAS</h2>
+            <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>
+           
+            <span class="dot-dash dark">.</span> 
+        </div>
+  
+  
+        <div class="our-blog--container">  
+  
+            <div class="our-blog--item" *ngFor="let produc of producto">
+                <div *ngIf="cargando"  role="alert" class="loader text-center">
+                    <span class="sr-only">Loading...</span>
+                 <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                </div>
 
-   <app-seccioncateg></app-seccioncateg>
+                <div class="our-blog--item__image">
+                    <a >
+                        <img [src]="produc.img | imagen: 'productos'" alt="" >
+                    </a>
+                </div>
+                <div class="our-blog--item__text left">
+                    <span>Categoria / {{produc.categoria.nombre}} </span>
+                    <span>Artesan@ / {{produc.usuario.nombre}} </span>
+                    <h3>{{produc.nombre}} </h3>
+                    <p>{{produc.descripcion}}</p>
+                    <a *ngIf="produc.linkdepago" class="btn btn-info btn-sm"  href="produc.linkdepago">Link de Pago <i class="fa fa-angle-double-right" aria-hidden="true"> $ : {{produc.precio}}</i></a>
+                    <a *ngIf="!produc.linkdepago  && produc.precio" class="btn btn-info btn-sm"  >Precio : $ {{produc.precio}} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <a *ngIf="!produc.linkdepago  && !produc.precio" class="btn btn-info btn-sm"  >Precio : Consultar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+
+   
+                </div>
+            </div>       
+          
+           
+        </div>
+
+        <div class="col-12 text-center">
+            <p>Mostrando {{desde}}  de {{totalRegistros}} registros</p>
+            <button class="btn btn-info btn-sm"
+            (click)="cambiarDesde( - 6  )">Anterior</button> &nbsp;
+            <button class="btn btn-info btn-sm"
+            (click)="cambiarDesde( + 6  )"
+            >Siguiente</button>
+        </div>
+  
+    
+    </section>
+   
+    <section class="get-started-1">
+        <div class="container">
+          <h2>Rizosfera Patagonia</h2>
+          <p>Villa Llanquín, el encantador paraje!</p>
+        </div>
+    </section>
+  </div>
+        
+        
+   
+      
+  
+    
+    
+    
+    
+    
+    
+  
+
+ 

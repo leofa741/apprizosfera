@@ -7,25 +7,32 @@
         </div>
         <div class="menu menu1  ">
             <ul>
+               
                 <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
                 <li><a routerLink="/productos"  routerLinkActive="active">Productos</a></li>
-                <li><a routerLink="/about"   routerLinkActive="active">About Us</a></li>
-                <li ><a routerLink="/blog"  routerLinkActive="active">Blog</a></li>
+                <li><a routerLink="/about"   routerLinkActive="active">About Us</a></li>              
                 <li *ngIf="isLoggedIn()"><a routerLink="/admin"   routerLinkActive="active">Admin</a></li> 
                 <li><a routerLink="/contact"   routerLinkActive="active">Contact</a></li>    
                        
                 <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active" >login</a></li>
-                <li *ngIf="isLoggedIn()"> <a routerLink="/login" (click)="logout()" routerLinkActive="active" >Logout</a></li>   
+                <li *ngIf="isLoggedIn()"> <a routerLink="/login" (click)="logout()" routerLinkActive="active" >Logout</a></li> 
+                   
                                   
               </ul>
+              
+            
+
               <div *ngIf="isLoggedIn()" class="logo-user"><span  class="user-name">{{usuario | slice:0:10}}...</span>
                 <img [src]="imgUrl
-                 | imagen: 'usuarios'" alt="" />
-            
-            
-            </div>
+                 | imagen: 'usuarios'" alt="" />          
+              </div>
+              
            
         </div>
+        
+        <div *ngIf="isLoggedIn()" class="searchdiv">
+          <app-search></app-search>  
+          </div>
         <div class="mobile-menu  "><i class="fa fa-bars"></i></div> 
     </div>
   </header>

@@ -48,11 +48,14 @@ export class ProductoService {
       const url = `${ base_url }/productos/${id}`;
   
       return this.http.get( url, this.headers )
+    
         .pipe(
-          map( (resp:any )=>{
+          
+          map( (resp:any )=>{ 
+           
             return {        
               productos: resp,    
-          
+         
             }}
           )
         );

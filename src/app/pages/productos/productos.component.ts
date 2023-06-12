@@ -50,17 +50,14 @@ cargarProductos() {
 
 
 
-cambiarDesde( valor: number ) {      
+cambiarDesde( valor: number ) {    
 
   const desde = this.desde + valor;
-
   const hasta = this.hasta + valor;
-
-
   console.log(desde);
   if ( desde >= this.totalRegistros ) {
     return;
-  }
+    }
 
   if ( desde < 0 ) {
     return;

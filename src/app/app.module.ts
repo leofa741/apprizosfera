@@ -39,6 +39,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
 import { SeccioncategComponent } from './components/seccioncateg/seccioncateg.component';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductonewComponent } from './pages/productonew/productonew.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { ProductonewComponent } from './pages/productonew/productonew.component'
     ImagenPipe,
     SeccioncategComponent,
     ProductoComponent,
-    ProductonewComponent
+    ProductonewComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

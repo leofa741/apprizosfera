@@ -15,3 +15,13 @@
 
     
 }
+
+.searchdiv{
+
+    margin-top: -15px;
+    margin-left: 110px;
+   
+    position: fixed;
+    z-index: 100;
+
+}
