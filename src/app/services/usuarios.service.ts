@@ -115,7 +115,7 @@ export class UsuariosService {
   } 
 
 
-  actualizarPerfil( data: {nombre: string, email: string, rol: string} ) {
+  actualizarPerfil( data: {nombre: string, email: string,telefono:string, rol: string} ) {
     data = {
       ...data,
       rol: this.usuario.rol

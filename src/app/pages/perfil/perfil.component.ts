@@ -24,7 +24,8 @@ export class PerfilComponent  implements OnInit {
 
   public registerForm = this.fb.group({
     nombre: ['', Validators.required ],
-    email: ['', [ Validators.required, Validators.email ] ],   
+    email: ['', [ Validators.required, Validators.email ] ],    
+    telefono: ['', Validators.required ],
   }, {
     validators: this.passwordsIguales('password', 'password2')
   });
@@ -42,11 +43,7 @@ export class PerfilComponent  implements OnInit {
 
     console.log("igoo",this.usuarioService.usuario.google);
 
-    this.usuariogoogle 
-
-   
-   
-   
+    this.usuariogoogle   
 
   }
 
@@ -64,7 +61,6 @@ export class PerfilComponent  implements OnInit {
             console.log(resp);
             // Navegar al Dashboard
             this.router.navigateByUrl('/perfil-usuario');  
-
             setTimeout(() => {
               Swal.fire('Actualizado', 'Usuario actualizado correctamente', 'success');
             }
@@ -107,7 +103,7 @@ export class PerfilComponent  implements OnInit {
         
       }
 
-
+ 
   
 
 
