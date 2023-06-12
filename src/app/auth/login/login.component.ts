@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
   }
 
  
-  
+ 
+
 
 
   googleInit() {
@@ -70,12 +71,15 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
 
   handleCredentialResponse(response:any) {
     this.usuarioService.loginGoogle(response.credential)
-    .subscribe( resp => {
+    
+    .subscribe( resp => {     
       
-      this.router.navigateByUrl('/admin');       
+      this.router.navigateByUrl('/admin');         
+    } , (err) => {
+      // Si sucede un error
+          Swal.fire('Error', err.error.msg, 'error' );
     }
     )
-
   }
 
 

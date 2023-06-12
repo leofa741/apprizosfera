@@ -39,6 +39,7 @@ export class UsuariosService {
         this.auth2 = gapi.auth2.init({
           client_id: '1045072534136-oqkjcjvo449uls0bttgvl3aejelh22f5.apps.googleusercontent.com',
           cookiepolicy: 'single_host_origin',
+          
         });
 
         resolve();
@@ -101,7 +102,7 @@ export class UsuariosService {
   }
 
 
-
+ 
 
   crearUsuario( formData: RegisterForm ) {
     

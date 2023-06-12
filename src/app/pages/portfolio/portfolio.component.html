@@ -30,9 +30,14 @@
                     <p>{{produc.descripcion}}</p>
                     <a *ngIf="produc.linkdepago" class="btn btn-info btn-sm"  href="produc.linkdepago">Link de Pago <i class="fa fa-angle-double-right" aria-hidden="true"> $ : {{produc.precio}}</i></a>
                     <a *ngIf="!produc.linkdepago  && produc.precio" class="btn btn-info btn-sm"  >Precio : $ {{produc.precio}} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    <a *ngIf="!produc.linkdepago  && produc.precio === 0" class="btn btn-info btn-sm"  >Precio : Consultar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <a *ngIf="!produc.linkdepago  && produc.precio === 0"
+                    routerLink="/contact"
+                    class="btn btn-info btn-sm"  >Precio : Consultar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                      <br />
-                    <a href="https://wa.me/{{produc.usuario.telefono}}?text=Hola%20{{produc.usuario.nombre}}%20me%20interesa%20el%20producto%20{{produc.nombre}}%20de%20la%20categoria%20{{produc.categoria.nombre}}%20que%20vi%20en%20la%20pagina%20de%20Rizosfera%20Patagonia" class="btn btn-info btn-sm"  target="_blank"  >Consultar <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                    <a *ngIf="produc.usuario.telefono"
+                      href="https://wa.me/{{produc.usuario.telefono}}?text=Hola%20{{produc.usuario.nombre}}%20me%20interesa%20el%20producto%20{{produc.nombre}}%20de%20la%20categoria%20{{produc.categoria.nombre}}%20que%20vi%20en%20la%20pagina%20de%20Rizosfera%20Patagonia" 
+                      class="btn btn-info btn-sm"  
+                      target="_blank"  >Consultar <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                 </div>
             </div>       
           
