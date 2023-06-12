@@ -27,16 +27,18 @@
                     <span>Categoria / {{produc.categoria.nombre}} </span>
                     <span>Artesan@ / {{produc.usuario.nombre}} </span>
                     <h3>{{produc.nombre}} </h3>
-                    <p>{{produc.descripcion}}</p>
+                    <p class=" text-center
+                    ">{{produc.descripcion}}</p>
                     <a *ngIf="produc.linkdepago" class="btn btn-info btn-sm"  href="produc.linkdepago">Link de Pago <i class="fa fa-angle-double-right" aria-hidden="true"> $ : {{produc.precio}}</i></a>
                     <a *ngIf="!produc.linkdepago  && produc.precio" class="btn btn-info btn-sm"  >Precio : $ {{produc.precio}} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                     <a *ngIf="!produc.linkdepago  && produc.precio === 0"
                     routerLink="/contact"
                     class="btn btn-info btn-sm"  >Precio : Consultar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                      <br />
+                     
                     <a *ngIf="produc.usuario.telefono"
                       href="https://wa.me/{{produc.usuario.telefono}}?text=Hola%20{{produc.usuario.nombre}}%20me%20interesa%20el%20producto%20{{produc.nombre}}%20de%20la%20categoria%20{{produc.categoria.nombre}}%20que%20vi%20en%20la%20pagina%20de%20Rizosfera%20Patagonia" 
-                      class="btn btn-info btn-sm"  
+                    style="background-color: #25D366; color: white; padding: 10px; border-radius: 5px; margin-top: 10px; display: inline-block;"
                       target="_blank"  >Consultar <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                 </div>
             </div>       
@@ -52,6 +54,7 @@
             (click)="cambiarDesde( + 6  )"
             >Siguiente</button>
         </div>
+        <br />
   
     
     </section>
