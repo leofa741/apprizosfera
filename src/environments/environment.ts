@@ -4,9 +4,9 @@
 
 export const environment = {
     production: false,
- //base_url: 'http://localhost:3000/api'
- // base_url: 'https://apprizosfera-back.vercel.app/api'
-  //base_url:  'https://apprizosfera-back-production.up.railway.app/api'
+     //base_url: 'http://localhost:3000/api'
+     // base_url: 'https://apprizosfera-back.vercel.app/api'
+     //base_url:  'https://apprizosfera-back-production.up.railway.app/api'
    base_url:  'https://apprizosfera-back.onrender.com/api'
 
   };

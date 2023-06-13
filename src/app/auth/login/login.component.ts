@@ -55,12 +55,12 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
       //document.getElementById("buttonDiv"),
       this.googleBtn.nativeElement,
       {  
-      theme: "filled_blue",
+    
       size: "large",
       text: "Sign in with Google",
-      shape: "rectangular",
+      shape: "circle",
       logo_alignment: "left",
-      width: "300",
+      width: "350",
       height: "50",
       longtitle: true,
   
