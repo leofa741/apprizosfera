@@ -10,14 +10,14 @@
         </div>
   
   
-        <div class="our-blog--container">  
+        <div class="our-blog--container ">
 
             <div *ngIf="cargando"  role="alert" class="loader text-center">
                 <span class="sr-only">Loading...</span>
              <i class="fa fa-spinner fa-spin" style="font-size:34px"></i>
             </div>
   
-            <div class="our-blog--item" *ngFor="let produc of producto">
+            <div class="our-blog--item fadeInUp wow" data-wow-delay="0.5s" *ngFor="let produc of producto">
               
 
                 <div class="our-blog--item__image">

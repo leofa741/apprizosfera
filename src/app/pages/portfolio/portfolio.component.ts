@@ -33,6 +33,8 @@ export class PortfolioComponent implements OnInit{
     public modalImagenService: ModalImagenService,
     private usuarioService: UsuariosService,   
   ) { 
+  
+    
      this.cargarProductos();
     }
 
