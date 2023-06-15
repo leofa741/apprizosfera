@@ -15,11 +15,11 @@ declare function customInitTether(): any;
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
+
 export class PortfolioComponent implements OnInit{
 
   public producto:any[]=[];
   public usuario: string = '';
-
   public desde: number = 0;
   public hasta : number = 0;
   public totalRegistros: number = 0;
@@ -32,12 +32,13 @@ export class PortfolioComponent implements OnInit{
     private productoService: ProductoService,
     public modalImagenService: ModalImagenService,
     private usuarioService: UsuariosService,   
-  ) { }
+  ) { 
+     this.cargarProductos();
+    }
 
   ngOnInit()  { 
     customInit();
-    this.cargarProductos();
-
+   
    
   }
 
@@ -47,14 +48,11 @@ export class PortfolioComponent implements OnInit{
     this.productoService.cargarPrductos( this.desde )
       .subscribe( ({ productos }) => {
         this.cargando = false;
-        this.producto = productos.productos;
-
-  console.log(this.producto);
-
-   
-
-        this.totalRegistros = productos.total;
-        this.ok = productos.ok;
+        setTimeout(() => {
+          this.producto = productos.productos; 
+          this.totalRegistros = productos.total;
+          this.ok = productos.ok;
+        }, 1000);        
       });
   }
   
