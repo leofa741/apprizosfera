@@ -35,7 +35,7 @@ export class PortfolioComponent implements OnInit{
   ) { 
   
     
-     this.cargarProductos();
+    this.productoService.cargarPrductos( this.desde )
     }
 
   ngOnInit()  { 
