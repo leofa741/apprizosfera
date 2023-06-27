@@ -34,8 +34,8 @@ export class PortfolioComponent implements OnInit{
     private usuarioService: UsuariosService,   
   ) { 
   
-    
-    this.productoService.cargarPrductos( this.desde )
+    this.cargarProductos();
+
     }
 
   ngOnInit()  { 

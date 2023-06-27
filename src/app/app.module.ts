@@ -40,6 +40,7 @@ import { SeccioncategComponent } from './components/seccioncateg/seccioncateg.co
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductonewComponent } from './pages/productonew/productonew.component';
 import { SearchComponent } from './components/search/search.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { SearchComponent } from './components/search/search.component';
     SeccioncategComponent,
     ProductoComponent,
     ProductonewComponent,
-    SearchComponent
+    SearchComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

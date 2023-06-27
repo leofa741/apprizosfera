@@ -46,6 +46,20 @@ export class BusquedasService  {
                   }) );       
           }
 
+    
+  
+          buscarGlobal(  termino: string ) {
+
+            const url = `${ base_url }/buscar/${ termino }`;
+            return this.http.get<any[]>( url, this.headers )
+                      .pipe(
+                        map( (resp :any) => {
+                          return resp;
+                        }) );
+          }
+
+
+
 
 
 

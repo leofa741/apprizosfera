@@ -17,6 +17,7 @@ import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductonewComponent } from './pages/productonew/productonew.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
 { path: 'admin', component: DashboardComponent, canActivate: [ authGuard ],data: { titulo: 'Dashboard'}},
 { path: 'blog', component: BlogComponent ,data: { titulo: 'Blog' }},
 { path: 'blog/:id', component: BlogComponent , data: { titulo: 'Blog' }},
+{ path: 'search/:termino', component: BusquedaComponent , data: { titulo: 'Search' }},
 { path: 'contact', component: ContactComponent , data: { titulo: 'Contact' }},
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: '**',component: NopagefoundComponent, data: { titulo: 'Page not found' } },
