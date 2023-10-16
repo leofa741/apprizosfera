@@ -1,0 +1,20 @@
+<section class="partners">
+    <div class="container">
+        <h2>Nuestras Artesanias</h2>
+        <span class="dot-dash dark">.</span>
+        <div class="partners--container" >
+            <div *ngIf="cargando"  role="alert" class="loader"> <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>Cargando...</div>
+
+            <div class="partners--item" *ngFor="let categoria of categorias" >
+                <div class="partners--item__image">
+                   
+                    <img [src]="categoria.img | imagen: 'categorias'" alt="" 
+                    width="70%" height="110%" />  
+                    
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
+

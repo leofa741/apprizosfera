@@ -1,0 +1,27 @@
+<div class="container">  
+  <form id="contact" action="" autocomplete="off" [formGroup]="prodtcForm"  (ngSubmit)="guardar()">
+    <h3>Crear nuevo articulo para el blog</h3>
+    <h4>Complete el formulario para crear un nuevo articulo</h4>
+
+
+    <fieldset>
+      <input placeholder="Your title"
+       type="text" tabindex="1" required autofocus  formControlName="title">
+      <p class=" text-danger" *ngIf="prodtcForm.controls['title'].invalid && prodtcForm.controls['title'].touched">
+        El titulo es obligatorio</p>
+    </fieldset>
+
+    <fieldset>
+      <textarea placeholder="Type your message here...." tabindex="5" required formControlName="content"></textarea>
+      <p class=" text-danger" *ngIf="prodtcForm.controls['content'].invalid && prodtcForm.controls['content'].touched">
+        El contenido es obligatorio</p>
+    </fieldset>
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+
+
+
+  </form>
+</div>
