@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -42,9 +41,6 @@ import { ProductonewComponent } from './pages/productonew/productonew.component'
 import { SearchComponent } from './components/search/search.component';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MomentModule } from 'angular2-moment';
-
-import { MatIconModule } from '@angular/material/icon';
 import { ArticleComponent } from './articledetalle/article/article.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { SearchinblogComponent } from './components/searchinblog/searchinblog.component';
@@ -106,8 +102,8 @@ import { CommentsNewComponent } from './pages/comments-new/comments-new.componen
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
-    MatIconModule,  
+    BrowserAnimationsModule
+      
 
   ],
   providers: [],
