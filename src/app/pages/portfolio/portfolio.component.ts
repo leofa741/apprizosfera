@@ -51,7 +51,7 @@ export class PortfolioComponent implements OnInit{
       .subscribe( ({ productos }) => {
         this.cargando = false;
         setTimeout(() => {
-        
+          this.cargando = false;
           this.producto = productos.productos; 
           this.totalRegistros = productos.total;
           this.ok = productos.ok;
