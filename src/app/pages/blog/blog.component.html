@@ -25,13 +25,13 @@
       <div class="tag">
         <span class="tag tag-brown" (click)="Like(item._id )">
           <i class="fa fa-thumbs-up" [ngClass]="{'fa-heart-o': !item.likes, 'fa-heart': item.likes}"></i>
-          {{couuntLikes(item.likes)==0 ? '': couuntLikes(item.likes) }}
+         
           {{couuntLikes(item.likes)}}</span>
 
 
         <span class="tag tag-blue" routerLink="/comments/{{item._id}}">
           <i class="fa fa-comment"></i>
-          {{couuntComments(item.comments )==0 ? '': couuntComments(item.comments )}}
+         
           {{couuntComments(item.comments ) }}</span>
       </div>
 
