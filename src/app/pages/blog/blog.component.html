@@ -33,9 +33,7 @@
           <i class="fa fa-comment"></i>
          
           {{couuntComments(item.comments ) }}</span>
-      </div>
 
-      <div class="tag">
         <span *ngIf="isLoggedIn()" class="tag tag-red" (click)="deleteArticle(item._id)"> <i class="fa fa-trash"></i>
         </span>
 
