@@ -1,6 +1,8 @@
-<div *ngIf="cargando" role="alert" class="col-md-12 text-center">
-  <app-loading></app-loading>
-</div>
+
+
+<div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
+  <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/>
+ </div>
 <div class="col-12 text-center">
   <app-searchinblog></app-searchinblog>
 
@@ -24,15 +26,11 @@
     <div class="card__body">
       <div class="tag">
         <span class="tag tag-brown" (click)="Like(item._id )">
-          <i class="fa fa-thumbs-up" [ngClass]="{'fa-heart-o': !item.likes, 'fa-heart': item.likes}"></i>
-         
+          <i class="fa fa-thumbs-up" [ngClass]="{'fa-heart-o': !item.likes, 'fa-heart': item.likes}"></i>         
           {{couuntLikes(item.likes)}}</span>
 
-
         <span class="tag tag-blue" routerLink="/comments/{{item._id}}">
-          <i class="fa fa-comment"></i>
-         
-          {{couuntComments(item.comments ) }}</span>
+          <i class="fa fa-comment"></i>{{couuntComments(item.comments)}} Comentá</span>
 
         <span *ngIf="isLoggedIn()" class="tag tag-red" (click)="deleteArticle(item._id)"> <i class="fa fa-trash"></i>
         </span>
