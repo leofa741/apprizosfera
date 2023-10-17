@@ -100,10 +100,10 @@ background: linear-gradient(to bottom, #3cba92, #0ba360);
 
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 360px) {
   .tag {
     font-size: .7rem;
-    padding: .25em .5em;
+ 
   }
 
   
