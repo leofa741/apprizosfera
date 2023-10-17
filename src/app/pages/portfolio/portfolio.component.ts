@@ -49,13 +49,11 @@ export class PortfolioComponent implements OnInit{
     this.cargando = true;
     this.productoService.cargarPrductos( this.desde )
       .subscribe( ({ productos }) => {
-        this.cargando = false;
-        setTimeout(() => {
-          this.cargando = false;
+       
           this.producto = productos.productos; 
           this.totalRegistros = productos.total;
           this.ok = productos.ok;
-        }, 1000);        
+             
       });
   }
   
