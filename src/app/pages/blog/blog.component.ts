@@ -38,14 +38,14 @@ export class BlogComponent implements OnInit ,OnChanges {
     public modalImagenService: ModalImagenService,
   ) { }
   ngOnChanges(changes: SimpleChanges): void {
-    this.cargarArticles();
-    this.searchBlog(this.termino);
+  
     this.token;
     this.modalImagenService.nuevaImagen.subscribe(img => this.cargarArticles());
   }
 
   ngOnInit() {
-  
+    this.cargarArticles();
+    this.searchBlog(this.termino);
   }
 
   get token(): string {
