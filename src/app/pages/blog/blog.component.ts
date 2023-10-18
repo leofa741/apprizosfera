@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 import { Article } from 'src/app/models/article.models';
 import { ArticlesService } from 'src/app/services/articles.service';
@@ -17,7 +17,7 @@ import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 })
 
 
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit ,OnChanges {
 
 
   public imgUrl!: string;
@@ -37,12 +37,15 @@ export class BlogComponent implements OnInit {
     private busquedasService: BusquedasService,
     public modalImagenService: ModalImagenService,
   ) { }
-
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
     this.cargarArticles();
     this.searchBlog(this.termino);
     this.token;
     this.modalImagenService.nuevaImagen.subscribe(img => this.cargarArticles());
+  }
+
+  ngOnInit() {
+  
   }
 
   get token(): string {
