@@ -64,6 +64,19 @@ img {
   font-size: .75rem;
 }
 
+@media screen and (max-width: 740px) {
+  .tag {
+    font-size: .7rem;
+    padding: .25em .5em; 
+  }
+
+  .tag + .tag {
+    margin-left: .25em;
+  }
+
+  
+}
+
 .tag + .tag {
   margin-left: .5em;
 }
@@ -100,14 +113,7 @@ background: linear-gradient(to bottom, #3cba92, #0ba360);
 
 }
 
-@media screen and (max-width: 360px) {
-  .tag {
-    font-size: .7rem;
- 
-  }
 
-  
-}
 
 
 .like {
