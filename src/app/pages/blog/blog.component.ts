@@ -32,12 +32,13 @@ export class BlogComponent implements OnInit ,OnChanges {
   public usuario!: string;
  
   constructor(
-    private usuarioService: UsuariosService,
     private articleService: ArticlesService,
+    private usuarioService: UsuariosService,
+  
     private busquedasService: BusquedasService,
     public modalImagenService: ModalImagenService,
   ) { 
-     this.cargarArticles();}
+    }
 
   ngOnChanges(changes: SimpleChanges) {
    
@@ -45,7 +46,7 @@ export class BlogComponent implements OnInit ,OnChanges {
   }
 
   ngOnInit() {
-   
+    this.cargarArticles();
     this.searchBlog(this.termino);
     this.token;
     this.modalImagenService.nuevaImagen.subscribe(img => this.cargarArticles());
@@ -55,7 +56,15 @@ export class BlogComponent implements OnInit ,OnChanges {
     return localStorage.getItem('token') || '';
   }
 
- 
+  cargarArticles() {
+    this.articleService.getArticles(this.desde)
+      .subscribe(({ articles }) => {
+        this.cargando = false;
+        this.totalArticles = articles.total;
+        this.articles = articles.articles;
+        console.log(this.articles);
+      });
+  }
 
 
   abrirModal(article: Article) {
@@ -82,15 +91,7 @@ export class BlogComponent implements OnInit ,OnChanges {
   }
 
 
-  cargarArticles() {
-    this.articleService.getArticles(this.desde)
-      .subscribe(({ articles }) => {
-        this.cargando = false;
-        this.totalArticles = articles.total;
-        this.articles = articles.articles;
-        console.log(this.articles);
-      });
-  }
+ 
 
   
 
