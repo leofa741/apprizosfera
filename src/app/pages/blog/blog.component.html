@@ -18,7 +18,7 @@
 
       <a data-toggle="modal" data-target="#exampleModalCenter">
         <img [src]="item.img | imagen: 'articulos'" alt="" class="img-responsive cursor"
-          style="width: 100%; height: 100%;" (click)="abrirModal(item)">
+          style="width: 100%; height: 100%;" (click)="abrirModal(item)" loading="lazy" />
       </a>
 
       <!-- <img src={{item.img}} alt="card__image" class="card__image" width="600"> -->
