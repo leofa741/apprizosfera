@@ -37,15 +37,17 @@ export class BlogComponent implements OnInit ,OnChanges {
     private busquedasService: BusquedasService,
     public modalImagenService: ModalImagenService,
   ) { }
-  ngOnChanges(changes: SimpleChanges): void {
-  
-    this.token;
-    this.modalImagenService.nuevaImagen.subscribe(img => this.cargarArticles());
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.cargarArticles();
+
   }
 
   ngOnInit() {
-    this.cargarArticles();
+   
     this.searchBlog(this.termino);
+    this.token;
+    this.modalImagenService.nuevaImagen.subscribe(img => this.cargarArticles());
   }
 
   get token(): string {
