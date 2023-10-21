@@ -20,11 +20,10 @@
                 <div class="portfolio-item">
                     <div class="portfolio-thumb fadeInUp wow" data-wow-delay="0.5s">
                         
-                        <img class="our-blog--item__image" src="{{item.img}}" alt="portfolio img" *ngIf="item.img">
+                        <img class="our-blog--item__image" src="{{item.img}}" alt="portfolio img" *ngIf="item.img" loading="lazy" />
                         <span>Artesan@ / {{item.usuario.nombre}} </span>
                       
-                        <div class="portfolio-overlay">
-                         
+                        <div class="portfolio-overlay">                        
                           
                             <br/>
                             <h5>{{item.nombre}}</h5>
@@ -37,9 +36,7 @@
                            
                         </div>
                         <br/>
-                    </div>
-                     
-                    
+                    </div>                    
                 </div>
             </div>
 
@@ -53,10 +50,7 @@
                 >Siguiente</button>
             </div>
             <br />
-
-
-        </div>
-  
+        </div>  
         <br />
    
     </div> 
