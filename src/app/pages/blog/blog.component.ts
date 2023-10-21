@@ -36,10 +36,11 @@ export class BlogComponent implements OnInit ,OnChanges {
     private articleService: ArticlesService,
     private busquedasService: BusquedasService,
     public modalImagenService: ModalImagenService,
-  ) { }
+  ) { 
+     this.cargarArticles();}
 
   ngOnChanges(changes: SimpleChanges) {
-    this.cargarArticles();
+   
 
   }
 
