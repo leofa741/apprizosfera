@@ -33,11 +33,11 @@ export class BlogComponent implements OnInit ,OnChanges {
  
   constructor(
     private articleService: ArticlesService,
-    private usuarioService: UsuariosService,
-  
+    private usuarioService: UsuariosService,  
     private busquedasService: BusquedasService,
     public modalImagenService: ModalImagenService,
   ) { 
+    this.cargarArticles();
     }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -45,7 +45,7 @@ export class BlogComponent implements OnInit ,OnChanges {
 
   }
 
-  ngOnInit() {
+  ngOnInit()  {
     this.cargarArticles();
     this.searchBlog(this.termino);
     this.token;
@@ -273,8 +273,7 @@ export class BlogComponent implements OnInit ,OnChanges {
   
       this.usuario = this.usuarioService.usuario?.nombre
       return true
-    }
-    
+    }    
     return false;
   }  
 

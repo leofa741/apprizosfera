@@ -17,8 +17,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() : void {
     customInitTether();
-    customInit();
-   
+    customInit();   
     customboostrapinit();
    
   }

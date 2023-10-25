@@ -103,9 +103,7 @@ import { CommentsNewComponent } from './pages/comments-new/comments-new.componen
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule
-      
-
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

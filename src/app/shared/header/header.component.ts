@@ -35,17 +35,14 @@ export class HeaderComponent implements OnInit  {
     this.usuarioService.logout();
   }
 
-  cargarUsuarios() {
-   
+  cargarUsuarios() {   
     this.usuarioService.cargarUsuarios()
     .subscribe( ({total,usuarios})=> {     
       this.totalUsuarios = total;
       this.usuarioss = usuarios;    
               
-    }
-    )
-
-  }
+    })
+   }
    
 
   isLoggedIn () {
@@ -54,8 +51,7 @@ export class HeaderComponent implements OnInit  {
       this.imgUrl = this.usuarioService.usuario?.img || ''
       this.usuario = this.usuarioService.usuario?.nombre    
       return true
-    }
-    
+    }    
     return false;
   }  
 
