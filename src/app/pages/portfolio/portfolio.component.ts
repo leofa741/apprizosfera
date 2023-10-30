@@ -5,9 +5,6 @@ import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
-declare function customboostrapinit(): any;
-declare function customInit(): any;
-declare function customInitTether(): any;
 
 
 @Component({
@@ -39,7 +36,7 @@ export class PortfolioComponent implements OnInit{
     }
 
   ngOnInit()  { 
-    customInit();
+  
     this.cargarProductos();
    
   }

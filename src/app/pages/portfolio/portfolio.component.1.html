@@ -18,9 +18,9 @@
 
             <div *ngFor="let item of producto" class="col-md-3 ">
                 <div class="portfolio-item">
-                    <div class="portfolio-thumb fadeInUp wow" data-wow-delay="0.5s" loading="lazy">
+                    <div class="portfolio-thumb">
                         
-                        <img class="our-blog--item__image" src="{{item.img}}" alt="portfolio img" *ngIf="item.img" loading="lazy" />
+                        <img class="our-blog--item__image fadeIn wow" src="{{item.img}}" alt="portfolio img" *ngIf="item.img" data-wow-delay="2.5s" />
                         <span>Artesan@ / {{item.usuario.nombre}} </span>
                       
                         <div class="portfolio-overlay">                        
