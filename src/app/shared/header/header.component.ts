@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
-
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({

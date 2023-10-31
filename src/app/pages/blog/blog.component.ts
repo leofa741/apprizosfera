@@ -9,6 +9,7 @@ import { Usuario } from '../../models/usuario.model';
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 
+declare function customInit(): any;
 
 @Component({
   selector: 'app-blog',
@@ -46,6 +47,7 @@ export class BlogComponent implements OnInit ,OnChanges {
   }
 
   ngOnInit()  {
+    customInit();  
     this.cargarArticles();
     this.searchBlog(this.termino);
     this.token;
