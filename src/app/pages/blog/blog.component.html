@@ -1,9 +1,7 @@
 
 <div class="wrapper">
   <div class="container col-md-12 text-center ">
-<div *ngIf="cargando"  role="alert" >               
-  <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/>
- </div>
+
 <div class="col-12 text-center">
   <app-searchinblog></app-searchinblog>
 
@@ -14,6 +12,10 @@
 </div>
 
 <div class="container ">
+
+  <div *ngIf="cargando"  role="alert" class="col-md-12 text-center " >               
+    <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/>
+  
   <div *ngFor="let item of articles" class="card">
     <div class="card__header">
 
@@ -59,6 +61,9 @@
       </div>
     </div>
   </div>
+
+</div>
+
 </div>
 
 
