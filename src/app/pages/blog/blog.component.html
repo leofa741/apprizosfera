@@ -2,21 +2,16 @@
 <div class="container">
   <div class="page-header">
       <h2>NUESTRAS ARTESANIAS</h2>
-      <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>
-     
+      <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>     
       <span class="dot-dash dark">.</span> 
   </div>
 
-  <div class="row">
-
-
-          <div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
-          <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/><span >Loading...</span>
-         </div>
+   <div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
+       <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/><span >Loading...</span>
+   </div>
 
 <div class="col-12 text-center">
   <app-searchinblog></app-searchinblog>
-
   <div *ngIf="isLoggedIn()" class="col-11 text-right">
     <a routerLink="/newarticle" class="btn btn-info btn-sm">New Article</a>
   </div>
@@ -24,8 +19,6 @@
 </div>
 
 <div class="container ">
-
-
   <div *ngFor="let item of articles" class="card">
     <div class="card__header">
 
@@ -71,14 +64,7 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
-</div>
-
-
-
 
 <div class="col-12 text-center">
   <p>Mostrando {{totalArticles}} registros</p>
