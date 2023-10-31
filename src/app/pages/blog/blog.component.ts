@@ -5,7 +5,7 @@ import { ArticlesService } from 'src/app/services/articles.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 import Swal from 'sweetalert2';
-import { Usuario } from '../../models/usuario.model';
+
 import { BusquedasService } from 'src/app/services/busquedas.service';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 
@@ -18,7 +18,7 @@ declare function customInit(): any;
 })
 
 
-export class BlogComponent implements OnInit ,OnChanges {
+export class BlogComponent implements OnInit  {
 
 
   public imgUrl!: string;
@@ -41,10 +41,7 @@ export class BlogComponent implements OnInit ,OnChanges {
     this.cargarArticles();
     }
 
-  ngOnChanges(changes: SimpleChanges) {
-   
-
-  }
+  
 
   ngOnInit()  {
     customInit();  
@@ -91,9 +88,6 @@ export class BlogComponent implements OnInit ,OnChanges {
       }
       )
   }
-
-
- 
 
   
 
