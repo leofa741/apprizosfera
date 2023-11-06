@@ -16,11 +16,13 @@
                 <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/><span >Loading...</span>
                </div>
 
-            <div *ngFor="let item of producto" class="col-md-3 ">
+            <div *ngFor="let item of producto" class="col-md-3 animate__animated animate__fadeInUp "
+            data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
                 <div class="portfolio-item">
-                    <div class="portfolio-thumb">
+                    <div class="portfolio-thumb " >
+
                         
-                        <img class="our-blog--item__image fadeIn wow" src="{{item.img}}" alt="portfolio img" *ngIf="item.img" data-wow-delay="2.5s" />
+                        <img class="our-blog--item__image " src="{{item.img}}" alt="portfolio img" *ngIf="item.img"  />
                         <span>Artesan@ / {{item.usuario.nombre}} </span>
                       
                         <div class="portfolio-overlay">                        

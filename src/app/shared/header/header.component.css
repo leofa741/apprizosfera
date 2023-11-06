@@ -25,3 +25,19 @@
     z-index: 100;
 
 }
+
+.menu2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -200px; /* Posición fuera de la pantalla */
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s;
+  }
+
+.menu2.open {
+    left: 0;
+  }

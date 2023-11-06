@@ -28,7 +28,18 @@ export class HeaderComponent implements OnInit  {
     this.cargarUsuarios()
   }
 
+  menuOpen = false;
+  toggleMenu() {
+    document.getElementById('sidebar')?.classList.toggle('active');
+  }
+
+  
+
  
+
+
+
+
 
   logout() {
     this.usuarioService.logout();

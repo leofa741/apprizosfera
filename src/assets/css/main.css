@@ -1517,6 +1517,7 @@ header {
         font-weight: 600; }
   header .mobile-menu {
     display: none; }
+  
 
 @media screen and (max-width: 991px) {
   header .menu {
@@ -1540,7 +1541,18 @@ header {
   header .mobile-menu {
     display: block;
     color: #ffffff;
-    font-size: 25px; } }
+    font-size: 25px; } 
+
+  
+ 
+
+
+
+
+
+
+    
+  }
 
 @media screen and (max-width: 575px) {
   header {
