@@ -5,7 +5,7 @@ import { ModalImagenService } from 'src/app/services/modal-imagen.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
-
+declare function customInit(): any;
 
 @Component({
   selector: 'app-portfolio',
@@ -36,9 +36,8 @@ export class PortfolioComponent implements OnInit{
     }
 
   ngOnInit()  { 
-  
-    this.cargarProductos();
-   
+    customInit();  
+    this.cargarProductos();   
   }
 
 
@@ -46,12 +45,10 @@ export class PortfolioComponent implements OnInit{
     this.cargando = true;
     this.productoService.cargarPrductos( this.desde )
       .subscribe( ({ productos }) => {
-          this.cargando = false;
-       
+          this.cargando = false;       
           this.producto = productos.productos; 
           this.totalRegistros = productos.total;
-          this.ok = productos.ok;
-             
+          this.ok = productos.ok;             
       });
   }
   

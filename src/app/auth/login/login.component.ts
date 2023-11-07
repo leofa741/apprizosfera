@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
+declare function customInit(): any;
 declare const google: any;
 
 @Component({
@@ -13,8 +14,6 @@ declare const google: any;
 })
 
 export class LoginComponent implements OnInit  ,AfterViewInit{
-
-
 
   public formSubmitted = false;
 
@@ -38,6 +37,7 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
   }
 
   ngOnInit() {
+    customInit();
     this.googleInit();
   }
 
@@ -50,22 +50,15 @@ export class LoginComponent implements OnInit  ,AfterViewInit{
     });
     google.accounts.id.renderButton(
       document.getElementById("buttonDiv"),
-      {
-       
-    
+      {   
         theme: "outline",
-      }
-    
+      }    
     );
-
-
   }
 
   handleCredentialResponse(response:any) {
-    this.usuarioService.loginGoogle(response.credential)
-    
-    .subscribe( resp => {     
-      
+    this.usuarioService.loginGoogle(response.credential)    
+    .subscribe( resp => {           
       this.router.navigateByUrl('/admin');         
     } 
     )
