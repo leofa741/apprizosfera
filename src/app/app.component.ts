@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 declare function customboostrapinit(): any;
 declare function customInit(): any;
 declare function customInitTether(): any;
+declare function customInitSlick(): any;
 
 
 @Component({
@@ -16,9 +17,11 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() : void {
+    
     customInitTether();
     customInit();   
     customboostrapinit();
+    customInitSlick();
    
   }
   
