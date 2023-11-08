@@ -20,10 +20,10 @@
 
 <div class="container ">
 
-  <div *ngFor="let item of articles" >
-  <div class="card__content">
-      <div class="card animate__animated animate__fadeInUp "
-      data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+  <div *ngFor="let item of articles" class="card ">
+  <div class="animate__animated animate__fadeInUp "
+  data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+      <div class="card__header">
 
       <a data-toggle="modal" data-target="#exampleModalCenter">
         <img [src]="item.img | imagen: 'articulos'" alt="" class="img-responsive cursor"
@@ -68,7 +68,6 @@
     </div>
   </div>
   </div>
-
 </div>
 
 <div class="col-12 text-center">
