@@ -1,0 +1,11 @@
+.img {
+    width: 110%;
+    height: 60%;
+    object-fit: cover;
+    object-position: calc(50% + 10px) -5px 5px;
+    background-color: black !important;
+    border-radius: 12px;
+
+  
+    cursor: pointer;
+}

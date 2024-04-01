@@ -1,0 +1,36 @@
+
+
+<section class="case-study">
+    <div class="container">
+        <h2>Rizosfera</h2>
+        <p>Desde Villa Llanquín es una pequeña localidad del Departamento Pilcaniyeu,Río Negro, Argentina</p>
+        <span class="dot-dash dark">.</span>
+    </div>
+    <div class="container">
+        <div class="case-study--sliders">
+            <div class="case-study--left">
+                <div class="case-study--left__textslider">
+                    <div>
+                        <div class="case-study--left__textslider__image"><i aria-hidden="true"><img src="assets/img/logo-1-removebg.png" alt="" /></i></div>
+                        <h4>{{articles[0].title}}</h4>
+                        <br/>
+                        <p> {{articles[0].content}}</p>
+                        <p> {{formatDate(articles[0].date)}}</p>
+                        <a routerLink="/blog" class="button small">Ver Blog</a>
+                    </div>
+                
+                </div>
+                <div class="case-study--left__dots"></div> 
+            </div>
+            <div class="case-study--right">
+                <div class="case-study--right__imageslider">
+                    <div>
+                        <img src={{articles[0].img}} alt="" 
+                        />
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

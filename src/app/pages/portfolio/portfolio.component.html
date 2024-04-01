@@ -1,0 +1,77 @@
+
+
+<div class="wrapper">
+    <section class="our-blog">
+        <div class="container">
+            <h2>NUESTRAS ARTESANIAS</h2>
+            <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>
+           
+            <span class="dot-dash dark">.</span> 
+        </div>
+  
+  
+        <div class="our-blog--container ">
+            <div *ngIf="cargando"  role="alert" class="loader text-center">               
+             <i class="fa fa-spinner fa-spin" style="font-size:34px"> </i><br/><span >Loading...</span>
+            </div>  
+            <div class="our-blog--item fadeInUp wow" data-wow-delay="0.5s" *ngFor="let produc of producto">              
+
+                <div class="our-blog--item__image">
+                    <a><img [src]="produc.img | imagen: 'productos'" alt="" ></a>
+                </div> 
+                <div class="our-blog--item__text left">
+                    <span>Categoria / {{produc.categoria.nombre}} </span>
+                    <span>Artesan@ / {{produc.usuario.nombre}} </span>
+                    <h3>{{produc.nombre}} </h3>
+                    <p class=" text-center
+                    ">{{produc.descripcion}}</p>
+                    <a *ngIf="produc.linkdepago" class="btn btn-info btn-sm"  href="produc.linkdepago">Link de Pago <i class="fa fa-angle-double-right" aria-hidden="true"> $ : {{produc.precio}}</i></a>
+                    <a *ngIf="!produc.linkdepago  && produc.precio" class="btn btn-info btn-sm"  >Precio : $ {{produc.precio}} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                    <a *ngIf="!produc.linkdepago  && produc.precio === 0"
+                    routerLink="/contact"
+                    class="btn btn-info btn-sm"  >Precio : Consultar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                     <br />
+                     
+                    <a *ngIf="produc.usuario.telefono"
+                      href="https://wa.me/{{produc.usuario.telefono}}?text=Hola%20{{produc.usuario.nombre}}%20me%20interesa%20el%20producto%20{{produc.nombre}}%20de%20la%20categoria%20{{produc.categoria.nombre}}%20que%20vi%20en%20la%20pagina%20de%20Rizosfera%20Patagonia" 
+                    style="background-color: #25D366; color: white; padding: 10px; border-radius: 5px; margin-top: 10px; display: inline-block;"
+                      target="_blank"  >Consultar <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                </div>
+            </div>    
+                   
+        </div>
+
+        <div class="col-12 text-center">
+            <p>Mostrando {{desde}}  de {{totalRegistros}} registros</p>
+            <button class="btn btn-info btn-sm"
+            (click)="cambiarDesde( - 6  )">Anterior</button> &nbsp;
+            <button class="btn btn-info btn-sm"
+            (click)="cambiarDesde( + 6  )"
+            >Siguiente</button>
+        </div>
+        <br />
+  
+    
+    </section>
+   
+    <section class="get-started-1">
+        <div class="container">
+          <h2>Apiario Dos Reinas</h2>
+          <p>Villa Llanquín, el encantador paraje!</p>
+        </div>
+    </section>
+  </div>
+        
+        
+   
+      
+  
+    
+    
+    
+    
+    
+    
+  
+
+ 

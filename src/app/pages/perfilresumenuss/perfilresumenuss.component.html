@@ -1,0 +1,23 @@
+
+<app-headeradmin></app-headeradmin>
+
+<section class="our-history">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Imagen</h2>
+                <img [src]="usuariomodel.imagenUrl"
+                 alt="" style="width: 50%; height: 66%; border-radius: 50%; border: 2px solid #000;" />
+                <br />
+
+            </div>  
+            <div class="col-md-7">
+                <h2 class="text-info" style="font-size: 25px;">usuaro:<span  class="text-danger " style="font-size: 25px;"  > {{usuario}}</span> </h2>
+                <p class="text-info" style="font-size: 25px;">usuario :  <span class="text-danger " style="font-size: 25px;"  >{{usuariomodel.email}}</span>  </p>
+                <p class="text-info" style="font-size: 25px;">usuario  .gmail:  <span class="text-danger " style="font-size: 25px;"  >{{usuariomodel.google}}</span>  </p>
+                <p class="text-info" style="font-size: 25px;">rool usuario  en la app:  <span class="text-danger " style="font-size: 25px;"  >{{usuariomodel.rol}}</span>  </p>
+                <a  [routerLink]="['/login']" (click)="logout()"  class="button">Logout</a>
+            </div>
+        </div>
+    </div>
+</section>
