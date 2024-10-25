@@ -1,0 +1,71 @@
+
+
+<div class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <h2>NUESTRAS ARTESANIAS</h2>
+            <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>
+           
+            <span class="dot-dash dark">.</span> 
+        </div>
+
+        <div class="row">
+
+
+                <div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
+                <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/><span >Loading...</span>
+               </div>
+
+            <div *ngFor="let item of productos" class="col-md-3 ">
+                <div class="portfolio-item">
+                    <div class="portfolio-thumb fadeInUp wow" data-wow-delay="0.5s">
+                        
+                        <img class="our-blog--item__image" src="{{item.img}}" alt="portfolio img" *ngIf="item.img">
+                        <span>Artesan@ / {{item.usuario?.nombre}} </span>
+                      
+                        <div class="portfolio-overlay">
+                         
+                          
+                            <br/>
+                            <h5>{{item.nombre}}</h5>
+                            <p>{{item.descripcion}}</p>
+                          
+                           
+                        </div>
+                        <br/>
+                    </div>
+                     
+                    
+                </div>
+            </div>
+
+
+        
+
+
+        </div>
+  
+        <br />
+   
+    </div> 
+    <section class="get-started-1">
+        <div class="container">
+          <h2>Rizosfera Patagonia</h2>
+          <p>Villa Llanquín, el encantador paraje!</p>
+        </div>
+    </section>
+
+  </div>
+        
+        
+   
+    
+    
+    
+    
+    
+    
+  
+
+ 
+

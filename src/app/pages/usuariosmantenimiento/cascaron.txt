@@ -1,0 +1,80 @@
+<section class="our-history">
+    <div class="container">
+
+       
+        <div class="col-md-7">
+            <h2>categotias</h2>
+         
+        </div>
+              <div class="row animated fadeIn fast">
+
+                <div class="col-12">          
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Buscar categoria" > 
+                </div>
+                </div>    
+
+              
+
+                    <div class="col-12 "> 
+                        <div class="card">
+
+                       <div class="card-body">
+                        <h4 class="card-title">Categorias</h4>
+                        <h6 class="card-subtitle">Categorias Registradas</h6>
+                        <div class="table-responsive m-t-40">
+                            <table id="myTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>rol</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr  >
+                                        <td  colspan="6">
+                                <div class="col-12 ">     
+                                    <div class=" alert alert-info alert-dismissible fade show text-center fadeIn fast"
+                                    role="alert" >
+                                       <strong>Cargando</strong> 
+                                      <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                                      <p>espere un momento por favor</p>
+                                     
+                                   </div>
+                                </div> 
+                                        </td>
+                            </tr>
+                            </tbody>
+                           
+                                <tbody>
+                                    <tr>
+                                        <td>Angel</td>
+                                        <td>Angel</td>
+                                        <td>Angel</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-success btn-sm">Editar</button>
+                                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                          </div>
+
+                     </div>
+                 </div>
+              </div>
+
+          
+        </div>
+        <br />
+        <div class="col-12 text-center">
+        <a href="#" class="button">Logout</a>
+    </div>
+</div>
+</section>
+
+<br />
+
+

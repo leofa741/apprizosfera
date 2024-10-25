@@ -1,0 +1,77 @@
+<app-headeradmin></app-headeradmin>
+
+<section class="our-history">
+    <div class="container">
+        <div class="col-md-7">
+            <h2>categorias</h2>
+        </div>
+        <div class="row animated fadeIn fast">
+
+            <div class="col-12">
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Buscar categoria" #txtBuscar
+                        (keyup)="buscarCategoria(txtBuscar.value)">
+                </div>
+            </div>
+
+            <div class="col-12 ">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="text-right">
+                            <button class="btn btn-primary btn-sm" (click)="agregarCategoria()"><i class="fa fa-plus"></i> Agregar</button>
+                        </div>
+                        <h4 class="card-title">Categorias</h4>
+                        <h6 class="card-subtitle">{{totalCategorias}} Categorias</h6>
+
+                        <div class="table-responsive m-t-40">
+                            <table id="myTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr
+                                        style="background-color: #4c4c4c; color: white; font-size: 12px; text-align: center;">
+                                        <th>Modificar <br/>Logo </th>
+                                        <th>Modificar Nombre de categoria</th>
+                                        <th>Clic sobre Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center" *ngIf="cargando">                                                    
+                                                    <app-loading></app-loading>                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr *ngFor="let categoria of categorias">
+                                        <td>
+                                            <img [src]="categoria.img | imagen: 'categorias'" alt=""
+                                                class="img-responsive cursor" style="width: 60px;"
+                                                (click)=" abrirModal(categoria)">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="Nombre"  [(ngModel)]="categoria.nombre">
+                                        </td>
+                                        <td class="text-center">
+                                            <button (click)="guardarCategoria(categoria)"  class="btn btn-success btn-sm"> <i class="fa fa-save"></i></button>
+
+                                            <button class="btn btn-danger btn-sm" (click)="borrarCategoria(categoria)"> <i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( - 5  )">Anterior</button> &nbsp;
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( + 5  )"
+                            >Siguiente</button>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+</section>
+<br />

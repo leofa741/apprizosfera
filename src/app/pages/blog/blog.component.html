@@ -1,0 +1,78 @@
+
+<div class="container">
+  <div class="page-header">
+      <h2>NUESTRAS ARTESANIAS</h2>
+      <p>Conoce nuestras artesanias en las que puedes encontrar los mejores productos regionales</p>     
+      <span class="dot-dash dark">.</span> 
+  </div>
+
+   <div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
+       <i class="fa fa-spinner fa-spin" style="font-size:34px "> </i><br/><span >Loading...</span>
+   </div>
+
+<div class="col-12 text-center">
+  <app-searchinblog></app-searchinblog>
+  <div *ngIf="isLoggedIn()" class="col-11 text-right">
+    <a routerLink="/newarticle" class="btn btn-info btn-sm">New Article</a>
+  </div>
+</div>
+</div>
+
+<div class="container ">
+
+  <div *ngFor="let item of articles" class="card ">
+  <div class="animate__animated animate__fadeInUp "
+  data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+      <div class="card__header">
+
+      <a data-toggle="modal" data-target="#exampleModalCenter">
+        <img [src]="item.img | imagen: 'articulos'" alt="" class="img-responsive cursor"
+          style="width: 100%; height: 100%;" (click)="abrirModal(item)" loading="lazy" />
+      </a>
+
+      <!-- <img src={{item.img}} alt="card__image" class="card__image" width="600"> -->
+    </div>
+    <div class="card__body">
+      <div class="tag">
+        <span class="tag tag-brown" (click)="Like(item._id )">
+          <i class="fa fa-thumbs-up" [ngClass]="{'fa-heart-o': !item.likes, 'fa-heart': item.likes}"></i>         
+          {{couuntLikes(item.likes)}}</span>
+
+        <span class="tag tag-blue" routerLink="/comments/{{item._id}}">
+          <i class="fa fa-comment"></i>{{couuntComments(item.comments)}} Comentá</span>
+
+        <span *ngIf="isLoggedIn()" class="tag tag-red" (click)="deleteArticle(item._id)"> <i class="fa fa-trash"></i>
+        </span>
+
+        <span *ngIf="isLoggedIn()" class="tag tag-green" (click)=" abrirModal(item)">Subir <i
+            class="fa fa-upload "></i> </span>
+
+        <span *ngIf="isLoggedIn()" class="tag tag-green" routerLink="/newarticle/{{item._id}}">Editar<i
+            class="fa fa-edit"></i> </span>
+      </div>
+
+
+      <h4>{{item.title}}</h4>
+      <p>{{item.content | slice:0:35}}... <a [routerLink]="['/blog/article', item._id]" class=" leermas">Leer más</a>
+      </p>
+    </div>
+    <div class="card__footer">
+      <div class="user">
+        <img src={{item.usuario?.img}} alt="user__image" class="user__image">
+        <div class="user__info">
+          <h5>{{item.usuario?.nombre}}</h5>
+          <h6>{{item.usuario?.email}}</h6>
+          <small>{{formatDate(item.date)}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="col-12 text-center">
+  <p>Mostrando {{totalArticles}} registros</p>
+  <button class="btn btn-info btn-sm" (click)="cambiarDesde( - 3  )">Anterior</button> &nbsp;
+  <button class="btn btn-info btn-sm" (click)="cambiarDesde( + 3  )">Siguiente</button>
+</div>
+<br />

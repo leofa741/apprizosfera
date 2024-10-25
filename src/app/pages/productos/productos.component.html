@@ -1,0 +1,117 @@
+
+<app-headeradmin></app-headeradmin>
+<section class="our-history">
+    <div class="container">
+
+       
+        <div class="col-md-7">
+            <h2>productos</h2>
+         
+        </div>
+              <div class="row animated fadeIn fast">
+
+                <div class="col-12">          
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Buscar prducto"  #termino (keyup)="buscar(termino.value)" >
+
+                </div>
+                </div>   
+              
+
+                    <div class="col-12 "> 
+                        <div class="card">
+
+                       <div class="card-body">
+                        <div class="text-right">
+                            <button class="btn btn-primary btn-sm" routerLink='/admin-producto-nuevo' ><i class="fa fa-plus"></i> Agregar</button>
+                        </div>
+                        <h4 class="card-title">productos</h4>
+                        <h6 class="card-subtitle">{{totalRegistros}}
+                            lista de productos</h6>
+                        <div class="table-responsive m-t-40">
+                            <table id="myTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr    style="background-color: #4c4c4c; color: white; font-size: 12px; text-align: center;">
+
+
+                                        <th>imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>precio</th>
+                                        <th>link de pago</th>
+                                        <th>disponible</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead> 
+                                <tbody >
+                                    <tr>
+                                        <td  colspan="7">
+                                <div class="col-12 ">     
+                                    <div class=" alert alert-info alert-dismissible fade show text-center fadeIn fast" *ngIf="cargando"
+                                    role="alert" >
+                                       <strong>Cargando</strong> 
+                                      <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                                      <p>espere un momento por favor</p>
+                                     
+                                   </div>
+                                </div> 
+                                        </td>
+                            </tr>
+                            </tbody>
+                           
+                                <tbody>
+                                    <tr *ngFor="let produc of producto">
+
+                                        <td class="text-center">
+                                            <img [src]="produc.img | imagen: 'productos'" alt=""
+                                            class="img-responsive cursor" style="width: 60px;" 
+                                            (click)=" abrirModal(produc)" >
+                                        </td>
+
+                                        <td>{{produc.nombre}}</td>
+                                        <td>{{produc.descripcion}}</td>
+                                        <td>{{produc.precio}}</td>
+                                        <td>{{produc.linkdepago | slice:0:34}}......</td>
+                                        <td>{{produc.disponible}}</td>
+                                                                        
+                                      
+                                        <td class="text-center">
+                                            <button 
+                                            *ngIf="produc.usuario?._id === usuarioService.usuario.uid"
+                                           
+                                            [routerLink]="['/producto', produc._id]" class="btn btn-success btn-sm">Editar</button>
+                                            <button class="btn btn-danger btn-sm"
+                                            (click)="borrarProducto(produc)"
+                                            >Eliminar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                          </div>
+
+
+                          <div class="col-12 text-center">
+                            <p>Mostrando {{desde}}  de {{totalRegistros}} registros</p>
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( - 6  )">Anterior</button> &nbsp;
+                            <button class="btn btn-info btn-sm"
+                            (click)="cambiarDesde( + 6  )"
+                            >Siguiente</button>
+                        </div>
+
+
+                     </div>
+                 </div>
+              </div>
+
+          
+        </div>
+        <br />
+     
+</div>
+</section>
+
+<br />
+
+
+  

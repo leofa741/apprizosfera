@@ -1,0 +1,95 @@
+
+
+ .navMenu {
+    position: absolute;
+    top: 90%;
+    left: 50%;    
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .navMenu a {
+    color: #030303;
+    text-decoration: none;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 70px;
+    margin-left: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:hover {
+    color: #0e4aca;
+  }
+  
+  .navMenu .dot {
+    width: 6px;
+    height: 6px;
+    background: #fddb3a;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(250px);
+    transform: translateX(250px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    .navMenu {
+      position: relative;
+      top: 0;
+      left: 0;
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      text-align: center;
+    }
+  
+    .navMenu a {
+      width: 40px;
+      margin: 5px 0;
+      font-size: 0.5em;
+      margin-left: 20px;
+    }
+  
+    .navMenu .dot {
+      display: none;
+    }
+  }
+
+    
+  

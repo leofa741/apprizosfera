@@ -1,0 +1,48 @@
+<section class="case-study">
+    <div class="container">
+        <h2>Rizosfera</h2>
+        <p>Desde Villa Llanquín es una pequeña localidad del Departamento Pilcaniyeu,Río Negro, Argentina</p>
+        <span class="dot-dash dark">.</span>
+    </div>
+
+    <div *ngIf="cargando"  role="alert" class="col-md-12 text-center">               
+       <app-loading></app-loading>
+       </div>
+    <div class="container"  *ngFor="let article of articlesblog" >      
+        
+        <div class="case-study--sliders">  
+            <div class="case-study--left">
+                <div class="case-study--left__textslider">
+                    <div>
+                        <div class="case-study--left__textslider__image"><i aria-hidden="true"><img src="assets/img/logo1.png" alt="" /></i></div>
+                        <h4>{{article.title}}</h4>
+                        <br/>
+                        <p> {{article.content}}</p>
+                        <a routerLink="/blog" class="button small">Volver </a>
+                    </div>                   
+                </div>
+                <div class="case-study--left__dots"></div> 
+            </div>           
+            <div class="case-study--right">
+                <div class="case-study--right__imageslider">
+                    <div>
+                        <img src="{{article.img}}" alt="" />
+                    </div>                 
+                </div>
+            </div>         
+        </div>
+  
+        <div class="card__footer">
+          <div class="user">
+            <img src={{article.usuario?.img}} alt="user__image" class="user__image" 
+            style="border-radius: 50%; width: 50px; height: 50px;">
+            <div class="user__info">
+              <h5>{{article.usuario?.nombre}}</h5>
+              <h6>{{article.usuario?.email}}</h6>
+              <small>{{formatDate(article.date)}}</small>
+            </div>
+          </div>                    
+      </div>
+    </div>
+  </section>
+  

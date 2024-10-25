@@ -1,0 +1,41 @@
+<header>
+    <div class="container">
+       
+
+        <div class="logo">
+          <a routerLink="/home">
+            <img src="assets/img/a-abeja.webp" alt="Logo de abeja" id="logo-img" />
+          </a>
+        </div>
+        <div class="menu menu1   " 
+        >
+
+            <ul>               
+                <li  ><a routerLink="/home" routerLinkActive="active" ><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+                
+                <li><a routerLink="/productos"  routerLinkActive="active">Products <i class="fa fa-chevron-down " aria-hidden="true"></i> </a></li>
+                <li><a routerLink="/about"   routerLinkActive="active">About Us</a></li>       
+                <li><a routerLink="/blog"    routerLinkActive="active"><i class="fa fa-rss fa-lg" aria-hidden="true"></i> Blog</a></li>                   
+                <li *ngIf="isLoggedIn()"> <a routerLink="/newarticle" routerLinkActive="active" >New Article</a></li>
+                <li><a routerLink="/contact"   routerLinkActive="active">Contact</a></li>     
+                <li *ngIf="isLoggedIn()"><a routerLink="/admin"   routerLinkActive="active"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a></li>                    
+                <li *ngIf="!isLoggedIn()"><a routerLink="/login" routerLinkActive="active" ><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> </a></li>
+                <li *ngIf="isLoggedIn()"> <a routerLink="/login" (click)="logout()" routerLinkActive="active" ><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a></li>                                  
+              </ul>
+              
+            
+              <div *ngIf="isLoggedIn()" class="logo-user"><span  class="user-name">{{usuario | slice:0:10}}...</span>
+                <img [src]="imgUrl
+                 | imagen: 'usuarios'" alt="" />          
+              </div>                         
+        </div>
+        
+        <div  class="searchdiv">
+          <!-- <app-search></app-search>   -->
+          </div>
+        <div class="mobile-menu " 
+        ><i class="fa fa-bars"></i></div> 
+    </div>
+
+  </header>
+ 

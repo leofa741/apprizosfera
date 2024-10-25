@@ -1,0 +1,14 @@
+
+
+
+
+<nav class="navMenu">
+  <a routerLink="/perfil-usuario" routerLinkActive="active" >usuario</a>
+  <a routerLink="/perfil" routerLinkActive="active" >actualizar</a> 
+  <a routerLink="/categorias" routerLinkActive="active"   *ngIf="rol === 'ADMIN_ROLE' || rol === 'SUPER_ADMIN_ROLE' ">categorias</a>
+  <a routerLink="/admin-productos" routerLinkActive="active"   *ngIf="rol === 'ADMIN_ROLE' || rol === 'SUPER_ADMIN_ROLE' ">productos</a>
+  <a routerLink="/mantenimiento-usuario" routerLinkActive="active"   *ngIf="rol === 'SUPER_ADMIN_ROLE' ">admin</a>
+    <!-- <div class="dot"></div> -->
+  </nav>
+    
+
