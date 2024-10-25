@@ -277,8 +277,8 @@ a, a:hover, button, button:hover, .btnborder, .btntop {
   .four-elements .col-md-3 {
     padding: 0 30px; }
     .four-elements .col-md-3 .four-elements--image {
-      height: 70px;
-      width: 70px;
+      height: 20px;
+      width: 20px;
       border: 1px solid #e5e5e5;
       background-color: #202020;
       display: -webkit-box;

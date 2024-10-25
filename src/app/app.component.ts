@@ -22,8 +22,14 @@ export class AppComponent implements OnInit{
     customInit();   
     customboostrapinit();
     customInitSlick();
+
+    
+
+    
    
   }
   
 }
+
+
 

@@ -48,6 +48,7 @@ import { BlogsearchComponent } from './pages/blogsearch/blogsearch.component';
 import { ArticleNewComponent } from './pages/article-new/article-new.component';
 import { ArticleEditComponent } from './pages/article-edit/article-edit.component';
 import { CommentsNewComponent } from './pages/comments-new/comments-new.component';
+import { LogoComponent } from "./shared/header/logo/logo.component";
 
 
 @NgModule({
@@ -95,15 +96,16 @@ import { CommentsNewComponent } from './pages/comments-new/comments-new.componen
     ArticleEditComponent,
     CommentsNewComponent
   ],
-  imports: [   
+  imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
-    ],
+    BrowserAnimationsModule,
+    LogoComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })
